@@ -1,0 +1,61 @@
+CSU01 - Cadastrar Pedido
+
+Sumário: Usuário registra o pedido feito pelo cliente
+
+Fluxo Principal
+
+1. Usuário recebe o pedido feito pelo Cliente.
+2. Usuário analisa se o que foi requisitado no pedido está disponível, acessando o banco de dados.
+3. Usuário faz a requisição no sistema do pedido.
+4. O sistema atualiza as informações do banco de dados, após a realização do pedido.
+5. O usuário é notificado que o pedido foi realizado.
+6. O pedido é finalizado.
+
+Fluxo Alternativo(2):  O pedido não está correto.
+2.1 O usuário analisa o pedido.
+2.2 O pedido é recusado, por não se encontrar de forma correta.
+2.3 O pedido é enviado de volta para o cliente para ser feito de forma correta.
+
+CSU02 - Realizar Pedido
+
+Sumário: Cliente realiza um pedido
+
+Fluxo Principal:
+
+1. Cliente acessa o sistema.
+2. Cliente inicia um pedido.
+3. Cliente seleciona os produtos no pedido.
+4. Cliente seleciona a forma de pagamento do pedido.
+5. Cliente seleciona a forma de notificação a respeito da situação do pedido.
+6. Pedido é encaminhado para o Usuário para verificação do pedido.
+
+
+CSU03 - Visualizar Relatórios
+
+Sumário: Visualização das informações
+
+Fluxo Principal:
+
+1. Administrador acessa o sistema.
+2. Administrador  seleciona as informações a serem disponibilizadas.
+3. Sistema acessa o banco de dados para recuperar as informações requisitadas.
+4. As informações requisitadas são mostradas na tela.
+5. O Administrador analisa as informações e finaliza a visualização.
+
+
+CSU04 - Cadastrar Informações do Sistema
+
+Sumário: Adição de informações ao Sistema
+
+Fluxo Principal:
+
+1. Administrador acessa o sistema.
+2. Administrador adiciona informações no sistema.
+3. O sistema guarda as informações no banco de dados.
+4. Administrador finaliza a adição de informações.
+
+Fluxo Alternativo(2): Informações inválidas
+2.1 O Administrador adiciona informações no sistema.
+2.2 As informações são inválidas.
+2.3 Sistema avisa que as informações são inválidas.
+
