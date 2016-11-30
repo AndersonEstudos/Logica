@@ -26,22 +26,23 @@ import java.util.Date;
 
 public class Main {
 
-    private static GUILogin guiLogin = new GUILoginEstoque();
-    private static GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
+    //private static GUILogin guiLogin = new GUILoginEstoque();
+    //private static GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
 
     public static void main(String[] args) throws ClienteInvalidoException {
-        popularDao();
-        guiLogin.logar();
+        //popularDao();
+        //guiLogin.logar();
+    	DaoUsuarioPadrao.getInstance().pegarUsuario(-1);
     }
 
-    public static void popularDao() throws ClienteInvalidoException {
+ /*   public static void popularDao() throws ClienteInvalidoException {
         IDaoUsuarioCliente daoCliente = DaoUsuarioCliente.getInstance();
         IDaoUsuarioPadrao daoUsuarioPadrao = DaoUsuarioPadrao.getInstance();
         IDaoDemanda daoDemanda = DaoDemanda.getInstance();
         IDaoPedido daoPedido = DaoPedido.getInstance();
-        /*
+        
         public UsuarioCliente(long id, String nome, String endereco, String telefone, String login, String senha)
-         */
+         
         UsuarioPadrao usuarioPadrao1 = new UsuarioPadrao(false, "Thiago", "R. dos Lascados", "84 9 5254-6586", "thiago", "admin");
         UsuarioPadrao usuarioPadrao = new UsuarioPadrao(true, "Hiarley", "R. dos Lascados", "84 9 5236-5656", "admin", "admin");
         UsuarioCliente usuarioCliente = new UsuarioCliente("Joao", "Av. Professor não me reprova pelo amor de Deus", "84 9 9858-5256", "joao", "admin");
@@ -65,5 +66,5 @@ public class Main {
         Pedido pedido2 = new Pedido(usuarioCliente.getId(), new Date(), "Problemas2", 'I', listaProdutos);
         daoPedido.adicionarPedido(pedido2);
 
-    }
+    }*/
 }

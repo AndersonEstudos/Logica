@@ -37,7 +37,7 @@ public abstract class Usuario {
     /**
      * @return the id
      */
-    public long getId() {
+    public /*@ pure @*/ long getId() {
         return id;
     }
 
@@ -52,7 +52,7 @@ public abstract class Usuario {
     /**
      * @return the nome
      */
-    public String getNome() {
+    public /*@ pure @*/ String getNome() {
         return nome;
     }
 
@@ -67,7 +67,7 @@ public abstract class Usuario {
     /**
      * @return the endereco
      */
-    public String getEndereco() {
+    public /*@ pure @*/ String getEndereco() {
         return endereco;
     }
 
@@ -82,7 +82,7 @@ public abstract class Usuario {
     /**
      * @return the telefone
      */
-    public String getTelefone() {
+    public /*@ pure @*/ String getTelefone() {
         return telefone;
     }
 
@@ -97,7 +97,7 @@ public abstract class Usuario {
     /**
      * @return the login
      */
-    public String getLogin() {
+    public /*@ pure @*/ String getLogin() {
         return login;
     }
 
@@ -112,7 +112,7 @@ public abstract class Usuario {
     /**
      * @return the senha
      */
-    public String getSenha() {
+    public /*@ pure @*/ String getSenha() {
         return senha;
     }
 

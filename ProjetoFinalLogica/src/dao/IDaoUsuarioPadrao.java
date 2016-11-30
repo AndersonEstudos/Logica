@@ -17,10 +17,17 @@ public interface IDaoUsuarioPadrao {
     public void adicionarUsuario(UsuarioPadrao usuario);
     public void removerUsuario(UsuarioPadrao usuario);
     public void atualizarUsuario(UsuarioPadrao usuario);
-    public UsuarioPadrao pegarUsuario(long id);
+    
+    /*@ requires id >= 0;
+      @ ensures \result == null || \result.getId() == id;
+      @*/
+    public /*@ nullable @*/ UsuarioPadrao pegarUsuario(long id);
     public ArrayList<UsuarioPadrao> listarUsuarios();
-
-    public UsuarioPadrao pegarUsuario(String login);
+   
+    /*@ requires login != null && login.length() > 0;
+      @ ensures \result == null || \result.getLogin().equals(login);
+      @*/
+    public /*@ nullable @*/ UsuarioPadrao pegarUsuario(String login);
 
          
 }
