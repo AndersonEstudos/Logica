@@ -20,7 +20,6 @@ import domain.UsuarioPadrao;
 import excecao.DemandaInvalidoException;
 import excecao.PedidoInvalidoException;
 import excecao.HistoricoInvalidoException;
-import fastfood.GUIUsuarioFastFood;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -195,7 +194,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
         try {
             pedido.setStatus(status);
         } catch (PedidoInvalidoException ex) {
-            Logger.getLogger(GUIUsuarioFastFood.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUIUsuarioEstoque.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         try {
