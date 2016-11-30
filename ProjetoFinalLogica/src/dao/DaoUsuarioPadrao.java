@@ -92,7 +92,7 @@ public class DaoUsuarioPadrao implements IDaoUsuarioPadrao {
 		return resultList;
 	}
 
-	
+	@Override
 	public /*@ nullable @*/UsuarioPadrao pegarUsuario(String login) {
 		Iterator<UsuarioPadrao> it = usuarios.iterator();
 		while (it.hasNext()) {
