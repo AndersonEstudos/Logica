@@ -15,15 +15,10 @@ import java.util.ArrayList;
 public interface IDaoUsuarioCliente {
 
     public void adicionarCliente(UsuarioCliente usuario);
-
     public void removerCliente(UsuarioCliente usuario);
-
     public void atualizarCliente(UsuarioCliente usuario);
-
-    public UsuarioCliente pegarCliente(long id);
-    
+    public UsuarioCliente pegarCliente(long id);    
     public UsuarioCliente pegarCliente(String login);
-
     public ArrayList<UsuarioCliente> listarCliente();
 
 
