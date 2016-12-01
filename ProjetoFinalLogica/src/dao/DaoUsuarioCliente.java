@@ -17,9 +17,12 @@ import java.util.Set;
  */
 public class DaoUsuarioCliente implements IDaoUsuarioCliente{
     
-    static DaoUsuarioCliente daoUsuario = null;
-    private Set<UsuarioCliente> usuarios;
+    static /*@ spec_public nullable @*/ DaoUsuarioCliente daoUsuario = null;
+    private /*@ spec_public nullable @*/ Set<UsuarioCliente> usuarios;
     
+    /*@ assignable daoUsuario;
+	  @ ensures \result != null && daoUsuario != null;
+	  @*/ 
     public static DaoUsuarioCliente getInstance() {
         if(daoUsuario == null){
             daoUsuario = new DaoUsuarioCliente();
@@ -65,7 +68,7 @@ public class DaoUsuarioCliente implements IDaoUsuarioCliente{
                 }
     }
 
-    public UsuarioCliente pegarCliente(long id) {
+    public  /*@ nullable @*/ UsuarioCliente pegarCliente(long id) {
         Iterator<UsuarioCliente> it = usuarios.iterator();
 		while(it.hasNext()) {
 			UsuarioCliente u = it.next();
@@ -90,7 +93,7 @@ public class DaoUsuarioCliente implements IDaoUsuarioCliente{
     }
 
     @Override
-    public UsuarioCliente pegarCliente(String login) {
+    public  /*@ nullable @*/ UsuarioCliente pegarCliente(String login) {
         Iterator<UsuarioCliente> it = usuarios.iterator();
 		while(it.hasNext()) {
 			UsuarioCliente u = it.next();

@@ -17,9 +17,12 @@ import java.util.Set;
  */
 public class DaoPedido implements IDaoPedido{
     
-    static DaoPedido daoServico = null;
-    private Set<Pedido> pedidos;
+    static   /*@ spec_public nullable @*/ DaoPedido daoServico = null;
+    private /*@ spec_public nullable @*/ Set<Pedido> pedidos;
 
+    /*@ assignable daoServico;
+	  @ ensures \result != null && daoServico != null;
+	  @*/
     public static DaoPedido getInstance() {
         if(daoServico == null){
             daoServico = new DaoPedido();

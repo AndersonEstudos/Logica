@@ -71,7 +71,6 @@ public class DaoUsuarioPadrao implements IDaoUsuarioPadrao {
 		Iterator<UsuarioPadrao> it = usuarios.iterator();
 		while (it.hasNext()) {
 			UsuarioPadrao u = it.next();
-
 			if (u.getId() == (id)) {
 				return u;
 			}

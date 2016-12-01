@@ -33,7 +33,7 @@ public abstract class Demanda {
     @	requires 0 <= preco;
     @	requires descricao != "";
     @   requires date != null;
-    @ 	ensures this.idDemanda == \old(this.idDemanda + 1);
+    @ 	ensures this.idDemanda == count.longValue() - 1;
     @	ensures this.nome == nome;
     @   ensures this.preco == preco;
     @   ensures this.descricao == descricao;

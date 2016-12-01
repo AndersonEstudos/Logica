@@ -17,8 +17,15 @@ public interface IDaoUsuarioCliente {
     public void adicionarCliente(UsuarioCliente usuario);
     public void removerCliente(UsuarioCliente usuario);
     public void atualizarCliente(UsuarioCliente usuario);
-    public UsuarioCliente pegarCliente(long id);    
-    public UsuarioCliente pegarCliente(String login);
+    
+    /*@ requires id >= 0;
+    @ ensures \result == null || \result.getId() == id;
+    @*/
+    public  /*@ nullable @*/ UsuarioCliente pegarCliente(long id);    
+    /*@ requires login != null && login.length() > 0;
+    @ ensures \result == null || \result.getLogin().equals(login);
+    @*/
+    public  /*@ nullable @*/ UsuarioCliente pegarCliente(String login);
     public ArrayList<UsuarioCliente> listarCliente();
 
 

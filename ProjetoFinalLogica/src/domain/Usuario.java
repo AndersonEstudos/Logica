@@ -30,7 +30,7 @@ public abstract class Usuario {
     @	requires telefone != "";
     @   requires login != "";
     @	requires senha != "";
-    @ 	ensures this.id == \old(this.id + 1);
+    @ 	ensures this.id == count.longValue() - 1;
     @	ensures this.nome == nome;
     @   ensures this.endereco == endereco;
     @   ensures this.telefone == telefone;

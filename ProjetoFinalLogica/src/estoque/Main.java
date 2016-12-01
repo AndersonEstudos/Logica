@@ -30,18 +30,17 @@ public class Main {
     //private static GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
 
     public static void main(String[] args) throws ClienteInvalidoException {
-        //popularDao();
+        popularDao();
         //guiLogin.logar();
-    	DaoUsuarioPadrao.getInstance().pegarUsuario(-1);
+    	
     }
 
- /*   public static void popularDao() throws ClienteInvalidoException {
+    public static void popularDao() throws ClienteInvalidoException {
         IDaoUsuarioCliente daoCliente = DaoUsuarioCliente.getInstance();
         IDaoUsuarioPadrao daoUsuarioPadrao = DaoUsuarioPadrao.getInstance();
         IDaoDemanda daoDemanda = DaoDemanda.getInstance();
         IDaoPedido daoPedido = DaoPedido.getInstance();
         
-        public UsuarioCliente(long id, String nome, String endereco, String telefone, String login, String senha)
          
         UsuarioPadrao usuarioPadrao1 = new UsuarioPadrao(false, "Thiago", "R. dos Lascados", "84 9 5254-6586", "thiago", "admin");
         UsuarioPadrao usuarioPadrao = new UsuarioPadrao(true, "Hiarley", "R. dos Lascados", "84 9 5236-5656", "admin", "admin");
@@ -49,7 +48,7 @@ public class Main {
         Demanda item = new Item(200, "Clip's", 0.10, "Prender papel", new Date());
         Demanda item1 = new Item(5, "Toner de impressora", 37.5, "Tooner Compativel com TK-4054 TK-3453", new Date());
         Demanda item2 = new Item(15, "Caneta", 0.9, "Caneta ponta 1.0", new Date());
-        daoDemanda.adicionarDemanda(item);
+        /*daoDemanda.adicionarDemanda(item);
         daoDemanda.adicionarDemanda(item1);
         daoDemanda.adicionarDemanda(item2);
         daoCliente.adicionarCliente(usuarioCliente);
@@ -64,7 +63,7 @@ public class Main {
         daoPedido.adicionarPedido(pedido1);
         listaProdutos.add(item2);
         Pedido pedido2 = new Pedido(usuarioCliente.getId(), new Date(), "Problemas2", 'I', listaProdutos);
-        daoPedido.adicionarPedido(pedido2);
+        daoPedido.adicionarPedido(pedido2);*/
 
-    }*/
+    }
 }
