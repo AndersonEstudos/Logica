@@ -18,7 +18,11 @@ import java.util.Set;
 public class DaoUsuarioPadrao implements IDaoUsuarioPadrao {
 
 	static  /*@ spec_public nullable @*/ DaoUsuarioPadrao daoUsuario = null;
-	private /*@ spec_public nullable @*/ Set<UsuarioPadrao> usuarios;
+	private /*@ nullable @*/ Set<UsuarioPadrao> listusuarios;//@ in listusers;
+	
+	/*@ private represents listusers <- listusuarios.toArray();
+	  @ private represents size <-  listusuarios.size();
+      @*/
 	
 	/*@ assignable daoUsuario;
 	  @ ensures \result != null && daoUsuario != null;
@@ -31,16 +35,16 @@ public class DaoUsuarioPadrao implements IDaoUsuarioPadrao {
 	}
 
 	public DaoUsuarioPadrao() {
-		usuarios = new HashSet<>();
+		listusuarios = new HashSet<>();
 	}
 
 	public void adicionarUsuario(UsuarioPadrao usuario) {
-		usuarios.add(usuario);
+		listusuarios.add(usuario);
 	}
 
 	@Override
 	public void removerUsuario(UsuarioPadrao usuario) {
-		Iterator<UsuarioPadrao> it = usuarios.iterator();
+		Iterator<UsuarioPadrao> it = listusuarios.iterator();
 		while (it.hasNext()) {
 			UsuarioPadrao u = it.next();
 
@@ -54,7 +58,7 @@ public class DaoUsuarioPadrao implements IDaoUsuarioPadrao {
 
 	@Override
 	public void atualizarUsuario(UsuarioPadrao usuario) {
-		Iterator<UsuarioPadrao> it = usuarios.iterator();
+		Iterator<UsuarioPadrao> it = listusuarios.iterator();
 		while (it.hasNext()) {
 			UsuarioPadrao u = it.next();
 
@@ -68,7 +72,7 @@ public class DaoUsuarioPadrao implements IDaoUsuarioPadrao {
 
 	@Override
 	public /*@ nullable @*/ UsuarioPadrao pegarUsuario(long id) {
-		Iterator<UsuarioPadrao> it = usuarios.iterator();
+		Iterator<UsuarioPadrao> it = listusuarios.iterator();
 		while (it.hasNext()) {
 			UsuarioPadrao u = it.next();
 			if (u.getId() == (id)) {
@@ -83,7 +87,7 @@ public class DaoUsuarioPadrao implements IDaoUsuarioPadrao {
 	public ArrayList<UsuarioPadrao> listarUsuarios() {
 		ArrayList<UsuarioPadrao> resultList = new ArrayList<UsuarioPadrao>();
 
-		Iterator<UsuarioPadrao> it = usuarios.iterator();
+		Iterator<UsuarioPadrao> it = listusuarios.iterator();
 		while (it.hasNext()) {
 			resultList.add(it.next());
 		}
@@ -93,7 +97,7 @@ public class DaoUsuarioPadrao implements IDaoUsuarioPadrao {
 
 	@Override
 	public /*@ nullable @*/UsuarioPadrao pegarUsuario(String login) {
-		Iterator<UsuarioPadrao> it = usuarios.iterator();
+		Iterator<UsuarioPadrao> it = listusuarios.iterator();
 		while (it.hasNext()) {
 			UsuarioPadrao u = it.next();
 

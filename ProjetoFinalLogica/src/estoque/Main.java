@@ -43,18 +43,24 @@ public class Main {
         
          
         UsuarioPadrao usuarioPadrao1 = new UsuarioPadrao(false, "Thiago", "R. dos Lascados", "84 9 5254-6586", "thiago", "admin");
+        UsuarioPadrao usuarioPadrao3 = new UsuarioPadrao(false, "Twwerwerhiago", "R. dos Lafghgfhscados", "84 9 5254-6586", "thifghfghago", "admin");
+
+        UsuarioPadrao usuarioPadrao2 = new UsuarioPadrao(false, "Thirrrago", "R. dos Lascadfghfghos", "84 9 5254-6586", "thiafghfghgo", "admin");
         UsuarioPadrao usuarioPadrao = new UsuarioPadrao(true, "Hiarley", "R. dos Lascados", "84 9 5236-5656", "admin", "admin");
         UsuarioCliente usuarioCliente = new UsuarioCliente("Joao", "Av. Professor não me reprova pelo amor de Deus", "84 9 9858-5256", "joao", "admin");
         Demanda item = new Item(200, "Clip's", 0.10, "Prender papel", new Date());
         Demanda item1 = new Item(5, "Toner de impressora", 37.5, "Tooner Compativel com TK-4054 TK-3453", new Date());
         Demanda item2 = new Item(15, "Caneta", 0.9, "Caneta ponta 1.0", new Date());
-        /*daoDemanda.adicionarDemanda(item);
-        daoDemanda.adicionarDemanda(item1);
-        daoDemanda.adicionarDemanda(item2);
-        daoCliente.adicionarCliente(usuarioCliente);
+        //daoDemanda.adicionarDemanda(item);
+        //daoDemanda.adicionarDemanda(item1);
+        //daoDemanda.adicionarDemanda(item2);
+        //daoCliente.adicionarCliente(usuarioCliente); 
         daoUsuarioPadrao.adicionarUsuario(usuarioPadrao);
         daoUsuarioPadrao.adicionarUsuario(usuarioPadrao1);
-        ArrayList<Demanda> listaProdutos = new ArrayList();
+        daoUsuarioPadrao.adicionarUsuario(usuarioPadrao2);
+        daoUsuarioPadrao.adicionarUsuario(usuarioPadrao3);
+        
+        /*ArrayList<Demanda> listaProdutos = new ArrayList();
         listaProdutos.add(item);
         Pedido pedido = new Pedido(usuarioCliente.getId(), new Date(), "Problemas", 'I', listaProdutos);
         daoPedido.adicionarPedido(pedido);

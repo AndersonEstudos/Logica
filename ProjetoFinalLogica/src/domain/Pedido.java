@@ -38,7 +38,7 @@ public class Pedido {
     @	requires descricao != "";
     @   requires listaProdutos != null;
     @	ensures this.idUsuarioSolicitante == idUsuarioSolicitante;
-    @ 	ensures this.idPedido == \old(this.idPedido + 1);
+    @ 	ensures this.idPedido == count.longValue() - 1;
     @	ensures this.dataAbertura == dataAbertura;
     @   ensures this.idUsuarioDemandando == idUsuarioDemandando;
     @   ensures this.descricao == descricao;

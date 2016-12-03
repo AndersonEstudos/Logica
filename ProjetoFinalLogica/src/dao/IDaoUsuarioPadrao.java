@@ -13,7 +13,17 @@ import java.util.ArrayList;
  * @author hiarl
  */
 public interface IDaoUsuarioPadrao {
-    
+	
+	//@ public model instance Object[] listusers;
+	//@ public model instance int size;
+	
+	/*@ public invariant (\forall int i; i >= 0 && i < size - 1; listusers[i] != null);
+	  @*/
+		
+	/*@ requires usuario != null;
+	  @ ensures (\exists int i; 0 <= i && i < size; listusers[i] == usuario);
+	  @ ensures_redundantly (\forall int i; i >= 0 && i < size - 1; listusers[i] == listusers[i]);
+	  @*/
     public void adicionarUsuario(UsuarioPadrao usuario);
     public void removerUsuario(UsuarioPadrao usuario);
     public void atualizarUsuario(UsuarioPadrao usuario);

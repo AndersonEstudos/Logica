@@ -13,10 +13,24 @@ import java.util.ArrayList;
  * @author Thiago
  */
 public interface IDaoDemanda {
-    public void adicionarDemanda(Demanda demanda);
+   
+	//@ public model instance Object[] listdemandas;
+	
+	/*@ public invariant (\forall int i; i >= 0 && i < listdemandas.length - 1; listdemandas[i] != null);
+	  @*/
+		
+	/*@ requires demanda != null;   
+	  @ ensures listdemandas[listdemandas.length - 1] == demanda;
+	  @ ensures_redundantly (\forall int i; i >= 0 && i < listdemandas.length - 1; listdemandas[i] == \old(listdemandas[i]));
+	  @*/
+	public void adicionarDemanda(Demanda demanda);
     public void removerDemanda(Demanda demanda);
     public void atualizarDemanda(Demanda demanda);
-    public Demanda pegarDemanda(long id);
+    
+    /*@ requires id >= 0;
+      @ ensures \result == null || \result.getIdDemanda() == id;
+      @*/
+    public /*@ nullable @*/  Demanda pegarDemanda(long id);
     public ArrayList<Demanda> listarDemandas();
 
     
