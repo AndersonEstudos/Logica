@@ -14,12 +14,20 @@ import java.util.List;
 
 public class NotaFiscalBuilderEstoque implements NotaFiscalBuilder {
 
-    private String nomeEmpresa;
-    private String nomeCliente;
-    private Long codigo;
-    private Date dataFaturamento;
-    private double valorTotal;
-    private List<Demanda> demandas;
+    private String nomeEmpresa; 		//@ in InomeEmpresa;
+    private String nomeCliente; 		//@ in InomeCliente;
+    private long codigo;				//@ in Icodigo;
+    private Date dataFaturamento;		//@ in IdataFaturamento;
+    private double valorTotal;			//@ in Ivalor;
+    private List<Demanda> demandas;		//@ in Idemandas;
+    
+    /*@ private represents InomeEmpresa <- nomeEmpresa;
+    @	private represents InomeCliente <- nomeCliente;
+    @	private represents Icodigo <- codigo;
+    @	private represents IdataFaturamento <- dataFaturamento;
+    @	private represents Ivalor <- valorTotal;
+    @	private represents Idemandas <- demandas;
+    @*/
 
     @Override
     public void buildCliente(String nomeCliente) {
@@ -32,7 +40,7 @@ public class NotaFiscalBuilderEstoque implements NotaFiscalBuilder {
     }
 
     @Override
-    public void buildCodigoPedido(Long codigo) {
+    public void buildCodigoPedido(long codigo) {
         this.codigo = codigo;
     }
 
