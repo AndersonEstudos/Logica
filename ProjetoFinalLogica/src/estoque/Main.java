@@ -26,7 +26,7 @@ import java.util.Date;
 
 public class Main {
 
-    private static GUILogin guiLogin = new GUILoginEstoque();
+    private static /*@ spec_public nullable @*/ GUILogin guiLogin = new GUILoginEstoque();
     //private static GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
 
     public static void main(String[] args) throws ClienteInvalidoException {

@@ -42,7 +42,7 @@ public class GerenciadorClientes {
         return this.daoCliente.pegarCliente(codigo);
     }
 
-    public UsuarioCliente getCliente(String login) {
+    public /*@ nullable @*/ UsuarioCliente getCliente(String login) {
         return this.daoCliente.pegarCliente(login);
     }
 

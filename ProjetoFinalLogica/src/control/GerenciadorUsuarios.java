@@ -44,7 +44,7 @@ public class GerenciadorUsuarios {
         return this.daoUsuario.pegarUsuario(id);
     }
     
-    public UsuarioPadrao getUsuario(String login){
+    public /*@ nullable @*/ UsuarioPadrao getUsuario(String login){
         return this.daoUsuario.pegarUsuario(login);
     }
 

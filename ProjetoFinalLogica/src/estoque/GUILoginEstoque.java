@@ -14,13 +14,17 @@ import java.util.Scanner;
 
 public class GUILoginEstoque implements GUI.GUILogin {
 
-    private Scanner in = new Scanner(System.in);
+    private /*@ spec_public nullable @*/ Scanner in = new Scanner(System.in);
 
-    GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
-    GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    GUIInicial guiInicialServico = new GUIInicialEstoque();
-    Usuario usuario;
-
+    private /*@ spec_public nullable @*/ GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
+    private /*@ spec_public nullable @*/ GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
+    //private /*@ spec_public nullable @*/ GUIInicial guiInicialServico = new GUIInicialEstoque();
+    protected /*@ spec_public nullable @*/ Usuario usuario;
+   
+    /*@ protected represents senhasistema <- usuario.getSenha();
+      @ protected represents loginsistema <- usuario.getLogin();
+      @*/
+    
     @Override
     public boolean autenticar(String login, String senha) {
         Usuario usuarioPadrao = gerenciadorUsuarios.getUsuario(login);
@@ -50,7 +54,7 @@ public class GUILoginEstoque implements GUI.GUILogin {
             System.out.println("Senha:");
             String senha = in.next();
             if (autenticar(login, senha)) {
-                guiInicialServico.acessarInterface(usuario);
+                //guiInicialServico.acessarInterface(usuario);
             }
         } while (true);
     }
