@@ -21,7 +21,6 @@ public class DaoUsuarioPadrao implements IDaoUsuarioPadrao {
 	private /*@ nullable @*/ Set<UsuarioPadrao> listusuarios;//@ in listusers;
 	
 	/*@ private represents listusers <- listusuarios.toArray();
-	  @ private represents size <-  listusuarios.size();
       @*/
 	
 	/*@ assignable daoUsuario;

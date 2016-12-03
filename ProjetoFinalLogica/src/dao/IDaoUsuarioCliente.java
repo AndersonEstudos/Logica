@@ -19,9 +19,11 @@ public interface IDaoUsuarioCliente {
 	/*@ public invariant (\forall int i; i >= 0 && i < users.length - 1; users[i] != null);
 	  @*/
 	
-	/*@ requires usuario != null;   
-	  @ ensures users[users.length - 1] == usuario;
-	  @ ensures_redundantly (\forall int i; i >= 0 && i < users.length - 1; users[i] == \old(users[i]));
+	/*@ requires usuario != null;
+	  @ requires false == (\exists int i; 0 <= i && i < users.length; users[i] == usuario);
+	  @ ensures (\exists int i; 0 <= i && i < users.length; users[i] == usuario);
+	  @ ensures_redundantly (\forall int i; i >= 0 && i < \old(users.length) - 1; 
+	  @   (\exists int j; j >= 0 && j < users.length - 1; \old(users[i]) == users[j]));
 	  @*/
     public void adicionarCliente(UsuarioCliente usuario);
     public void removerCliente(UsuarioCliente usuario);

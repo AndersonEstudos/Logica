@@ -18,7 +18,10 @@ import java.util.Set;
 public class DaoPedido implements IDaoPedido{
     
     static   /*@ spec_public nullable @*/ DaoPedido daoServico = null;
-    private /*@ spec_public nullable @*/ Set<Pedido> pedidos;
+    private /*@ nullable @*/ Set<Pedido> pedidos;//@ in listpedidos;
+    
+    /*@ private represents listpedidos <- pedidos.toArray();
+      @*/
 
     /*@ assignable daoServico;
 	  @ ensures \result != null && daoServico != null;
@@ -70,7 +73,7 @@ public class DaoPedido implements IDaoPedido{
     }
 
     @Override
-    public Pedido pegarPedido(long id) {
+    public /*@ nullable @*/ Pedido pegarPedido(long id) {
         Iterator<Pedido> it = pedidos.iterator();
 		while(it.hasNext()) {
 			Pedido d = it.next();

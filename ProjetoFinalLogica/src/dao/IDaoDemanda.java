@@ -19,9 +19,11 @@ public interface IDaoDemanda {
 	/*@ public invariant (\forall int i; i >= 0 && i < listdemandas.length - 1; listdemandas[i] != null);
 	  @*/
 		
-	/*@ requires demanda != null;   
-	  @ ensures listdemandas[listdemandas.length - 1] == demanda;
-	  @ ensures_redundantly (\forall int i; i >= 0 && i < listdemandas.length - 1; listdemandas[i] == \old(listdemandas[i]));
+	/*@ requires demanda != null;
+	  @ requires false == (\exists int i; 0 <= i && i < listdemandas.length; listdemandas[i] == demanda);
+	  @ ensures (\exists int i; 0 <= i && i < listdemandas.length; listdemandas[i] == demanda);
+	  @ ensures_redundantly (\forall int i; i >= 0 && i < \old(listdemandas.length) - 1; 
+	  @   (\exists int j; j >= 0 && j < listdemandas.length - 1; \old(listdemandas[i]) == listdemandas[j]));
 	  @*/
 	public void adicionarDemanda(Demanda demanda);
     public void removerDemanda(Demanda demanda);
