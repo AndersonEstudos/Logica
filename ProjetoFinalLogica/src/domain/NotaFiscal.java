@@ -128,7 +128,7 @@ public abstract class NotaFiscal {
         this.demandas = demandas;
     }
 
-    public abstract void imprimir();
+    public /*@ pure @*/ abstract void imprimir();
 
     /**
      * @return the valorTotal

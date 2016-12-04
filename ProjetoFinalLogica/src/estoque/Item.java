@@ -12,12 +12,17 @@ import java.util.Date;
 
 public class Item extends Demanda{
     
-    private int quantidadeEmEstoque;
-    private boolean disponivel;
+    private /*@ spec_public @*/ int quantidadeEmEstoque;
+    private /*@ spec_public @*/ boolean disponivel;
 
     public Item() {
     }
-
+    
+    
+    /*@
+    @	requires 0 <= quantidadeEmEstoque;
+    @	ensures this.quantidadeEmEstoque == quantidadeEmEstoque;
+    @*/
     public Item(int quantidadeEmEstoque, String nome, double preco, String descricao, Date date) {
         super( nome, preco, descricao, date);
         this.quantidadeEmEstoque = quantidadeEmEstoque;
@@ -26,13 +31,29 @@ public class Item extends Demanda{
     /**
      * @return the quantidadeEmEstoque
      */
-    public int getQuantidadeEmEstoque() {
+    public /*@ pure @*/ int getQuantidadeEmEstoque() {
         return quantidadeEmEstoque;
     }
 
-    /**
-     * @param quantidadeEmEstoque the quantidadeEmEstoque to set
-     */
+    /*@		public normal_behavior
+    @			requires 0 <= quantidadeEmEstoque;
+    @			assignable this.quantidadeEmEstoque;
+    @ 			ensures this.quantidadeEmEstoque == quantidadeEmEstoque;
+    @	also
+    @		public normal_behavior
+    @			requires 0 == quantidadeEmEstoque;
+    @			assignable this.quantidadeEmEstoque;
+    @			assignable this.disponivel;
+    @			ensures this.quantidadeEmEstoque == quantidadeEmEstoque;
+    @			ensures disponivel == false;
+    @	also
+    @		public exceptional_behavior
+    @		requires quantidadeEmEstoque < 0;
+    @		assignable this.quantidadeEmEstoque;
+    @		signals_only DemandaInvalidoException;
+    @		signals (DemandaInvalidoException e)
+    @				quantidadeEmEstoque < 0;
+    @*/
     public void setQuantidadeEmEstoque(int quantidadeEmEstoque) throws DemandaInvalidoException {
         if(quantidadeEmEstoque < 0) throw new DemandaInvalidoException("Quantidade invalida.");
         else if(quantidadeEmEstoque == 0){
@@ -40,7 +61,21 @@ public class Item extends Demanda{
         }
         this.quantidadeEmEstoque = quantidadeEmEstoque;
     }
-
+    
+    
+    /*@		
+    @ 	also
+    @		public normal_behavior
+    @			assignable \nothing;
+    @ 			ensures this.disponivel == true;
+    @	also
+    @		public exceptional_behavior
+    @			requires this.disponivel == false;
+    @			assignable \nothing;
+    @			signals_only UnsupportedOperationException;
+    @			signals (UnsupportedOperationException e)
+    @					this.disponivel == false;
+    @*/
     @Override
     public boolean validar() {
         if(!this.disponivel)
@@ -52,13 +87,14 @@ public class Item extends Demanda{
     /**
      * @return the disponivel
      */
-    public boolean isDisponivel() {
+    public /*@ pure @*/ boolean isDisponivel() {
         return disponivel;
     }
 
-    /**
-     * @param disponivel the disponivel to set
-     */
+    /*@
+    @			assignable this.disponivel;
+    @ 			ensures this.disponivel == disponivel;
+    @*/
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
     }

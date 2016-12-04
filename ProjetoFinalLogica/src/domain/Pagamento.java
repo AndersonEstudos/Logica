@@ -6,12 +6,15 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Random;
 
 /**
  *
  * @author Thiago
  */
 public abstract class Pagamento {
+		
     private /*@ spec_public @*/ long idDemanda;
     private /*@ spec_public @*/ String nome;
     private /*@ spec_public @*/ double valor;
@@ -91,5 +94,5 @@ public abstract class Pagamento {
     }
     public abstract void calcularPagamento(ArrayList<Demanda> listaProdutos);
     
-    public abstract boolean validar();
+    public /*@ pure @*/ abstract boolean validar();
 }

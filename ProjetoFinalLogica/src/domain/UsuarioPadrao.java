@@ -15,27 +15,32 @@ import excecao.UsuarioInvalidoException;
  */
 public class UsuarioPadrao extends Usuario{
     
-    private boolean administrador;
+    private /*@ spec_public @*/ boolean administrador;
 
+    
+    /*@
+    @	ensures this.administrador == administrador;
+    @*/
     public UsuarioPadrao(boolean administrador, String nome, String endereco, String telefone, String login, String senha) {
         super(nome, endereco, telefone, login, senha);
         this.administrador = administrador;
     }
     
-    public  boolean validar() throws UsuarioInvalidoException{
+    public /*@ pure @*/ boolean validar() throws UsuarioInvalidoException{
         return true;
     }
 
     /**
      * @return the administrador
      */
-    public boolean isAdministrador() {
+    public /*@ pure @*/ boolean isAdministrador() {
         return administrador;
     }
 
-    /**
-     * @param administrador the administrador to set
-     */
+    /*@
+    @			assignable this.administrador;
+    @ 			ensures this.administrador == administrador;
+    @*/
     public void setAdministrador(boolean administrador) {
         this.administrador = administrador;
     }

@@ -14,15 +14,24 @@ import java.util.Random;
 
 
 public class BoletoBancario extends Pagamento{
-    private Date vencimentoBoleto;
-    private int linhaDigitavel;
-    private int codigoBanco;
-    Random rand = new Random();
-    Date date;
+    private /*@ spec_public @*/ Date vencimentoBoleto; 	
+    private /*@ spec_public @*/ int linhaDigitavel;    	
+    private /*@ spec_public @*/ int codigoBanco;		
+    private /*@ spec_public @*/ Random rand = new Random();		
+    private /*@ spec_public @*/ Date date;						
+    
+    
     
     public BoletoBancario() {
     }
 
+    
+    /*@
+     @	requires nome != "";
+     @	ensures this.vencimentoBoleto == date;
+     @	ensures 0 >= linhaDigitavel && linhaDigitavel <= 1000;
+     @ 	ensures 0 >= codigoBanco && codigoBanco <= 50; 
+     @*/
     public BoletoBancario(Date vencimentoBoleto, long idDemanda, String nome) {
         super(idDemanda, nome);
         date = vencimentoBoleto;
@@ -35,13 +44,22 @@ public class BoletoBancario extends Pagamento{
     /**
      * @return the vencimentoBoleto
      */
-    public Date getVencimentoBoleto() {
+    public /*@ pure @*/ Date getVencimentoBoleto() {
         return vencimentoBoleto;
     }
 
-    /**
-     * @param vencimentoBoleto the vencimentoBoleto to set
-     */
+    /*@		public normal_behavior
+    @			requires vencimentoBoleto != null;
+    @			assignable this.vencimentoBoleto;
+    @ 			ensures this.vencimentoBoleto == vencimentoBoleto;
+    @	also
+    @		public exceptional_behavior
+    @		requires !(vencimentoBoleto instanceof Date);
+    @		assignable this.vencimentoBoleto;
+    @		signals_only PagamentoInvalidoException;
+    @		signals (PagamentoInvalidoException e)
+    @				!(vencimentoBoleto instanceof Date);
+    @*/
     public void setVencimentoBoleto(Date vencimentoBoleto) throws PagamentoInvalidoException {
         if(!(vencimentoBoleto instanceof Date)) throw new PagamentoInvalidoException("Invalido!");
 
@@ -51,13 +69,22 @@ public class BoletoBancario extends Pagamento{
     /**
      * @return the linhaDigitavel
      */
-    public int getLinhaDigitavel() {
+    public /*@ pure @*/ int getLinhaDigitavel() {
         return linhaDigitavel;
     }
 
-    /**
-     * @param linhaDigitavel the linhaDigitavel to set
-     */
+    /*@		public normal_behavior
+    @			requires 0 <= linhaDigitavel;
+    @			assignable this.linhaDigitavel;
+    @ 			ensures this.linhaDigitavel == linhaDigitavel;
+    @	also
+    @		public exceptional_behavior
+    @		requires linhaDigitavel < 0;
+    @		assignable this.linhaDigitavel;
+    @		signals_only PagamentoInvalidoException;
+    @		signals (PagamentoInvalidoException e)
+    @				linhaDigitavel < 0;
+    @*/
     public void setLinhaDigitavel(int linhaDigitavel) throws PagamentoInvalidoException {
         if(linhaDigitavel<0) throw new PagamentoInvalidoException("Invalido!");
         
@@ -67,13 +94,22 @@ public class BoletoBancario extends Pagamento{
     /**
      * @return the codigoBanco
      */
-    public int getCodigoBanco() {
+    public /*@ pure @*/ int getCodigoBanco() {
         return codigoBanco;
     }
 
-    /**
-     * @param codigoBanco the codigoBanco to set
-     */
+    /*@		public normal_behavior
+    @			requires 0 <= codigoBanco;
+    @			assignable this.codigoBanco;
+    @ 			ensures this.codigoBanco == codigoBanco;
+    @	also
+    @		public exceptional_behavior
+    @		requires codigoBanco < 0;
+    @		assignable this.codigoBanco;
+    @		signals_only PagamentoInvalidoException;
+    @		signals (PagamentoInvalidoException e)
+    @				codigoBanco < 0;
+    @*/
     public void setCodigoBanco(int codigoBanco) throws PagamentoInvalidoException {
         if(codigoBanco < 0) throw new PagamentoInvalidoException("Invalido!");
         
@@ -81,7 +117,7 @@ public class BoletoBancario extends Pagamento{
     }
 
     @Override
-    public boolean validar() {
+    public /*@ pure @*/ boolean validar() {
         System.out.println("Seu boleto bancário foi gerado com sucesso.");
         return true;
     }
@@ -93,7 +129,8 @@ public class BoletoBancario extends Pagamento{
                 Item item = (Item) produto;
                 setValor(getValor()+ item.getPreco());
                
-        }    }
+        }   
+    }
     
     
 }

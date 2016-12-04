@@ -20,7 +20,7 @@ public class UsuarioCliente extends Usuario {
         super(nome, endereco, telefone, login, senha);
     }
 
-    public boolean validar() throws ClienteInvalidoException {
+    public /*@ pure @*/ boolean validar() throws ClienteInvalidoException {
         return true;
     }
 
