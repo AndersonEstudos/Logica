@@ -20,10 +20,10 @@ public interface IDaoUsuarioCliente {
 	  @*/
 	
 	/*@ requires usuario != null;
-	  @ requires false == (\exists int i; 0 <= i && i < users.length; users[i] == usuario);
-	  @ ensures (\exists int i; 0 <= i && i < users.length; users[i] == usuario);
+	  @ requires false == (\exists int i; 0 <= i && i < users.length; users[i].equals(usuario));
+	  @ ensures (\exists int i; 0 <= i && i < users.length; users[i].equals(usuario));
 	  @ ensures_redundantly (\forall int i; i >= 0 && i < \old(users.length) - 1; 
-	  @   (\exists int j; j >= 0 && j < users.length - 1; \old(users[i]) == users[j]));
+	  @   (\exists int j; j >= 0 && j < users.length - 1; \old(users[i]).equals(users[j])));
 	  @*/
     public void adicionarCliente(UsuarioCliente usuario);
     public void removerCliente(UsuarioCliente usuario);

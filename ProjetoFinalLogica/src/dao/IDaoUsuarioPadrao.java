@@ -20,10 +20,10 @@ public interface IDaoUsuarioPadrao {
 	  @*/
 		
 	/*@ requires usuario != null;
-	  @ requires false == (\exists int i; 0 <= i && i < listusers.length; listusers[i] == usuario);
-	  @ ensures (\exists int i; 0 <= i && i < listusers.length; listusers[i] == usuario);
+	  @ requires false == (\exists int i; 0 <= i && i < listusers.length; listusers[i].equals(usuario));
+	  @ ensures (\exists int i; 0 <= i && i < listusers.length; listusers[i].equals(usuario));
 	  @ ensures_redundantly (\forall int i; i >= 0 && i < \old(listusers.length) - 1; 
-	  @   (\exists int j; j >= 0 && j < listusers.length - 1; \old(listusers[i]) == listusers[j]));
+	  @   (\exists int j; j >= 0 && j < listusers.length - 1; \old(listusers[i]).equals(listusers[j])));
 	  @*/
     public void adicionarUsuario(UsuarioPadrao usuario);
     public void removerUsuario(UsuarioPadrao usuario);

@@ -20,10 +20,10 @@ public interface IDaoDemanda {
 	  @*/
 		
 	/*@ requires demanda != null;
-	  @ requires false == (\exists int i; 0 <= i && i < listdemandas.length; listdemandas[i] == demanda);
-	  @ ensures (\exists int i; 0 <= i && i < listdemandas.length; listdemandas[i] == demanda);
+	  @ requires false == (\exists int i; 0 <= i && i < listdemandas.length; listdemandas[i].equals(demanda));
+	  @ ensures (\exists int i; 0 <= i && i < listdemandas.length; listdemandas[i].equals(demanda));
 	  @ ensures_redundantly (\forall int i; i >= 0 && i < \old(listdemandas.length) - 1; 
-	  @   (\exists int j; j >= 0 && j < listdemandas.length - 1; \old(listdemandas[i]) == listdemandas[j]));
+	  @   (\exists int j; j >= 0 && j < listdemandas.length - 1; \old(listdemandas[i]).equals(listdemandas[j])));
 	  @*/
 	public void adicionarDemanda(Demanda demanda);
     public void removerDemanda(Demanda demanda);

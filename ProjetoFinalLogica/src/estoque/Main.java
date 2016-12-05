@@ -35,12 +35,7 @@ public class Main {
     public static void main(String[] args) throws ClienteInvalidoException {
         popularDao();
         //guiLogin.logar(); 
-        try {
-			new GerenciadorUsuarios().cadastrarUsuario(new UsuarioPadrao(false, "asdasd", "dasd", "xczx", "asdasd", "asdasd"));
-		} catch (UsuarioInvalidoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
     }
 
     public static void popularDao() throws ClienteInvalidoException {
@@ -62,7 +57,6 @@ public class Main {
         daoCliente.adicionarCliente(usuarioCliente);
         daoUsuarioPadrao.adicionarUsuario(usuarioPadrao);
         daoUsuarioPadrao.adicionarUsuario(usuarioPadrao1);
-        
         ArrayList<Demanda> listaProdutos = new ArrayList<Demanda>();
         listaProdutos.add(item);
         Pedido pedido = new Pedido(usuarioCliente.getId(), new Date(), "Problemas", 'I', listaProdutos);
