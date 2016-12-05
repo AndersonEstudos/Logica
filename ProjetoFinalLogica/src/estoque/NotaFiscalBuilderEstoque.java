@@ -14,14 +14,14 @@ import java.util.List;
 
 public class NotaFiscalBuilderEstoque implements NotaFiscalBuilder {
 
-    private String nomeEmpresa; 		//@ in InomeEmpresa;
-    private String nomeCliente; 		//@ in InomeCliente;
+    private /*@ nullable @*/ String nomeEmpresa; 		//@ in InomeEmpresa;
+    private /*@ nullable @*/ String nomeCliente; 		//@ in InomeCliente;
     private long codigo;				//@ in Icodigo;
-    private Date dataFaturamento;		//@ in IdataFaturamento;
+    private /*@ nullable @*/ Date dataFaturamento;		//@ in IdataFaturamento;
     private double valorTotal;			//@ in Ivalor;
-    private List<Demanda> demandas;		//@ in Idemandas;
+    private /*@ nullable @*/ List<Demanda> demandas;		//@ in Idemandas;
     
-    /*@ private represents InomeEmpresa <- nomeEmpresa;
+  /*@   private represents InomeEmpresa <- nomeEmpresa;
     @	private represents InomeCliente <- nomeCliente;
     @	private represents Icodigo <- codigo;
     @	private represents IdataFaturamento <- dataFaturamento;

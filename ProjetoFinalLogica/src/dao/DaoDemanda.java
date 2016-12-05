@@ -67,7 +67,7 @@ public class DaoDemanda implements IDaoDemanda {
         }
     }
 
-    public /*@ nullable @*/ Demanda pegarDemanda(long id) {
+    public /*@ pure nullable @*/ Demanda pegarDemanda(long id) {
         Iterator<Demanda> it = demandas.iterator();
         while (it.hasNext()) {
             Demanda p = it.next();

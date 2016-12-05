@@ -18,7 +18,7 @@ public class GUILoginEstoque implements GUI.GUILogin {
 
     private /*@ spec_public nullable @*/ GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
     private /*@ spec_public nullable @*/ GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    //private /*@ spec_public nullable @*/ GUIInicial guiInicialServico = new GUIInicialEstoque();
+    private /*@ spec_public nullable @*/ GUIInicial guiInicialServico = new GUIInicialEstoque();
     protected /*@ spec_public nullable @*/ Usuario usuario;
    
     /*@ protected represents senhasistema <- usuario.getSenha();
@@ -54,7 +54,7 @@ public class GUILoginEstoque implements GUI.GUILogin {
             System.out.println("Senha:");
             String senha = in.next();
             if (autenticar(login, senha)) {
-                //guiInicialServico.acessarInterface(usuario);
+                guiInicialServico.acessarInterface(usuario);
             }
         } while (true);
     }

@@ -14,12 +14,12 @@ import java.util.List;
  */
 public interface NotaFiscalBuilder {
 	
-	//@ public model instance String InomeCliente;
-	//@ public model instance String InomeEmpresa;
-	//@ public model instance long Icodigo;
-	//@ public model instance Date IdataFaturamento;
-	//@ public model instance List Idemandas;
-	//@ public model instance double Ivalor;
+	//@ public nullable model instance String InomeCliente;
+	//@ public nullable model instance String InomeEmpresa;
+	//@ public nullable model instance long Icodigo;
+	//@ public nullable model instance Date IdataFaturamento;
+	//@ public nullable model instance List Idemandas;
+	//@ public nullable model instance double Ivalor;
 	
 	/*@
 	 @	requires nomeCliente != "";

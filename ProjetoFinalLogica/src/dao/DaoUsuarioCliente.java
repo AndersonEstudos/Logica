@@ -69,7 +69,7 @@ public class DaoUsuarioCliente implements IDaoUsuarioCliente{
                 }
     }
 
-    public  /*@ nullable @*/ UsuarioCliente pegarCliente(long id) {
+    public  /*@ pure nullable @*/ UsuarioCliente pegarCliente(long id) {
         Iterator<UsuarioCliente> it = usuarios.iterator();
 		while(it.hasNext()) {
 			UsuarioCliente u = it.next();
@@ -94,7 +94,7 @@ public class DaoUsuarioCliente implements IDaoUsuarioCliente{
     }
 
     @Override
-    public  /*@ nullable @*/ UsuarioCliente pegarCliente(String login) {
+    public  /*@ pure nullable @*/ UsuarioCliente pegarCliente(String login) {
         Iterator<UsuarioCliente> it = usuarios.iterator();
 		while(it.hasNext()) {
 			UsuarioCliente u = it.next();

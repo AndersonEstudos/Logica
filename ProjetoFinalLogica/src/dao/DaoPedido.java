@@ -73,7 +73,7 @@ public class DaoPedido implements IDaoPedido{
     }
 
     @Override
-    public /*@ nullable @*/ Pedido pegarPedido(long id) {
+    public /*@ pure nullable @*/ Pedido pegarPedido(long id) {
         Iterator<Pedido> it = pedidos.iterator();
 		while(it.hasNext()) {
 			Pedido d = it.next();

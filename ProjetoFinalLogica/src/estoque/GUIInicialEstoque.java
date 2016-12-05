@@ -16,11 +16,11 @@ import java.util.Scanner;
 
 public class GUIInicialEstoque implements GUIInicial {
 
-    private Scanner in = new Scanner(System.in);
+    private /*@ spec_public nullable @*/ Scanner in = new Scanner(System.in);
 
-    private GUIAdministrador guiAdministrador = new GUIAdministradorEstoque();
-    private GUIUsuario guiUsuario = new GUIUsuarioEstoque();
-    private GUICliente guiCliente = new GUIClienteEstoque();
+    private /*@ spec_public nullable @*/ GUIAdministrador guiAdministrador = new GUIAdministradorEstoque();
+   // private /*@ spec_public nullable @*/ GUIUsuario guiUsuario = new GUIUsuarioEstoque();
+   // private /*@ spec_public nullable @*/ GUICliente guiCliente = new GUIClienteEstoque();
 
     public void acessarInterface(Usuario usuario) {
         
@@ -42,10 +42,10 @@ public class GUIInicialEstoque implements GUIInicial {
                     showMenuGUIUsuarioAdministrador(usuario);
                     break;
                 case 2:
-                    showMenuGUIUsuarioPadrao(usuario);
+                    //showMenuGUIUsuarioPadrao(usuario);
                     break;
                 case 3:
-                    showMenuGUIUsuarioCliente(usuario);
+                    //showMenuGUIUsuarioCliente(usuario);
                     break;
                 default:
                     break;
@@ -78,25 +78,25 @@ public class GUIInicialEstoque implements GUIInicial {
                     guiAdministrador.cadastrarUsuario();
                     break;
                 case 2:
-                    guiAdministrador.cadastrarProdutos();
+                    //guiAdministrador.cadastrarProdutos();
                     break;
                 case 3:
-                    guiAdministrador.removerUsuario();
+                    //guiAdministrador.removerUsuario();
                     break;
                 case 4:
-                    guiAdministrador.removerProdutos();
+                    //guiAdministrador.removerProdutos();
                     break;
                 case 5:
-                    showMenuGUIInformacoes();
+                    //showMenuGUIInformacoes();
                     break;
                 case 6:
-                    guiAdministrador.cadastrarCliente();
+                    //guiAdministrador.cadastrarCliente();
                     break;
                 case 7:
-                    guiAdministrador.removerCliente();
+                    //guiAdministrador.removerCliente();
                     break;
                 case 8:
-                    guiAdministrador.analisarPedido(usuario);
+                    //guiAdministrador.analisarPedido(usuario);
                     break;
 
                 default:
@@ -106,7 +106,7 @@ public class GUIInicialEstoque implements GUIInicial {
         } while (option > 0);
     }
 
-    public void showMenuGUIUsuarioPadrao(Usuario usuario) {
+   /* public void showMenuGUIUsuarioPadrao(Usuario usuario) {
         int option;
 
         do {
@@ -201,6 +201,6 @@ public class GUIInicialEstoque implements GUIInicial {
             
             
         }while (option > 0);
-    }
+    }*/
 
 }

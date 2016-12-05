@@ -70,7 +70,7 @@ public class DaoUsuarioPadrao implements IDaoUsuarioPadrao {
 	}
 
 	@Override
-	public /*@ nullable @*/ UsuarioPadrao pegarUsuario(long id) {
+	public /*@ pure nullable @*/ UsuarioPadrao pegarUsuario(long id) {
 		Iterator<UsuarioPadrao> it = listusuarios.iterator();
 		while (it.hasNext()) {
 			UsuarioPadrao u = it.next();
@@ -95,7 +95,7 @@ public class DaoUsuarioPadrao implements IDaoUsuarioPadrao {
 	}
 
 	@Override
-	public /*@ nullable @*/UsuarioPadrao pegarUsuario(String login) {
+	public /*@ pure nullable @*/UsuarioPadrao pegarUsuario(String login) {
 		Iterator<UsuarioPadrao> it = listusuarios.iterator();
 		while (it.hasNext()) {
 			UsuarioPadrao u = it.next();

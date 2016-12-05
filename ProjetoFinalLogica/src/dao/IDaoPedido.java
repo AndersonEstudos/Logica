@@ -32,7 +32,7 @@ public interface IDaoPedido {
     /*@ requires id >= 0;
       @ ensures \result == null || \result.getIdServico() == id;
       @*/
-    public/*@ nullable @*/Pedido pegarPedido(long id);
+    public/*@ pure nullable @*/Pedido pegarPedido(long id);
     public ArrayList<Pedido> listarPedidosUsuario(long usuario);
     public ArrayList<Pedido> listarPedidos();
 }

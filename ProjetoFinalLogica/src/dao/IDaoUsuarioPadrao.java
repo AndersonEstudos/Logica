@@ -32,13 +32,13 @@ public interface IDaoUsuarioPadrao {
     /*@ requires id >= 0;
       @ ensures \result == null || \result.getId() == id;
       @*/
-    public /*@ nullable @*/ UsuarioPadrao pegarUsuario(long id);
+    public /*@ pure nullable @*/ UsuarioPadrao pegarUsuario(long id);
     public ArrayList<UsuarioPadrao> listarUsuarios();
    
     /*@ requires login != null && login.length() > 0;
       @ ensures \result == null || \result.getLogin().equals(login);
       @*/
-    public /*@ nullable @*/ UsuarioPadrao pegarUsuario(String login);
+    public /*@ pure nullable @*/ UsuarioPadrao pegarUsuario(String login);
 
          
 }

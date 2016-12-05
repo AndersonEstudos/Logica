@@ -32,12 +32,12 @@ public interface IDaoUsuarioCliente {
     /*@ requires id >= 0;
       @ ensures \result == null || \result.getId() == id;
       @*/
-    public  /*@ nullable @*/ UsuarioCliente pegarCliente(long id);    
+    public  /*@ pure nullable @*/ UsuarioCliente pegarCliente(long id);    
     
     /*@ requires login != null && login.length() > 0;
       @ ensures \result == null || \result.getLogin().equals(login);
       @*/
-    public  /*@ nullable @*/ UsuarioCliente pegarCliente(String login);
+    public  /*@ pure nullable @*/ UsuarioCliente pegarCliente(String login);
     public ArrayList<UsuarioCliente> listarCliente();
 
 
