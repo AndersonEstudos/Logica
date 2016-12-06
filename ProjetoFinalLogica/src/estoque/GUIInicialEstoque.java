@@ -81,10 +81,10 @@ public class GUIInicialEstoque implements GUIInicial {
                     guiAdministrador.cadastrarProdutos();
                     break;
                 case 3:
-                    //guiAdministrador.removerUsuario();
+                    guiAdministrador.removerUsuario();
                     break;
                 case 4:
-                    //guiAdministrador.removerProdutos();
+                    guiAdministrador.removerProdutos();
                     break;
                 case 5:
                     //showMenuGUIInformacoes();

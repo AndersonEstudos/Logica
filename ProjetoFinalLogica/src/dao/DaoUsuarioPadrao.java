@@ -34,7 +34,7 @@ public class DaoUsuarioPadrao implements IDaoUsuarioPadrao {
 	}
 
 	public DaoUsuarioPadrao() {
-		listusuarios = new HashSet<>();
+		listusuarios = new HashSet<>();		
 	}
 
 	public void adicionarUsuario(UsuarioPadrao usuario) {

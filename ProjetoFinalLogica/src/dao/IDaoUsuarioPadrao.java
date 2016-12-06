@@ -26,6 +26,10 @@ public interface IDaoUsuarioPadrao {
 	  @   (\exists int j; j >= 0 && j < listusers.length - 1; \old(listusers[i]).equals(listusers[j])));
 	  @*/
     public void adicionarUsuario(UsuarioPadrao usuario);
+    
+    /*@ requires usuario != null;
+      @ ensures (\forall int i; i >=0 && i < listusers.length; ((UsuarioPadrao)listusers[i]).getId() != usuario.getId());
+      @*/
     public void removerUsuario(UsuarioPadrao usuario);
     public void atualizarUsuario(UsuarioPadrao usuario);
     

@@ -25,8 +25,8 @@ public class GerarNotaFiscal {
      @		requires usuario != null;
      @		requires empresa != "";
      @		requires pagamento != null;
-     @		ensures  notaFiscal != null;
-     @		ensures  notaFiscal.codigo() == pedido.getIdServico() && notaFiscal.getCodigo() == pedido.getDataAbertura; 
+     @		ensures  \result != null;
+     @		ensures  \result.getCodigo() == pedido.getIdServico() && \result.getDataFaturamento() == pedido.getDataAbertura(); 
      @*/
     public NotaFiscal gerarNotaFiscal(Pedido pedido, UsuarioCliente usuario, String empresa, Pagamento pagamento){
         this.notaFiscalBuilder.buildCliente(usuario.getNome());

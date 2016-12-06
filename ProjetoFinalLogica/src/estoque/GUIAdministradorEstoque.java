@@ -87,21 +87,21 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
 
     @Override
     public void removerUsuario() {
-        /*try {
+        try {
             System.out.println("---------- Remover Usuario----------");
             System.out.print("Id: ");
             long id = Long.parseLong(in.nextLine());
             gerenciadorUsuarios.removerUsuario(gerenciadorUsuarios.getUsuario(id));
         } catch (Exception e) {
 
-        }*/
+        }
     }
 
     @Override
     public void removerProdutos() {
-       /* System.out.println("Digite o id do Produto: ");
+        System.out.println("Digite o id do Produto: ");
         long id = in.nextLong();
-        gerenciadorDemanda.removerDemanda(gerenciadorDemanda.getDemanda(id));*/
+        gerenciadorDemanda.removerDemanda(gerenciadorDemanda.getDemanda(id));
     }
 
     @Override

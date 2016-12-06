@@ -26,6 +26,10 @@ public interface IDaoDemanda {
 	  @   (\exists int j; j >= 0 && j < listdemandas.length - 1; \old(listdemandas[i]).equals(listdemandas[j])));
 	  @*/
 	public void adicionarDemanda(Demanda demanda);
+	
+   /*@ requires demanda != null;
+     @ ensures (\forall int i; i >=0 && i < listdemandas.length; ((Demanda)listdemandas[i]).getIdDemanda() != demanda.getIdDemanda());
+     @*/
     public void removerDemanda(Demanda demanda);
     public void atualizarDemanda(Demanda demanda);
     
