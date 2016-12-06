@@ -13,7 +13,29 @@ import java.util.List;
 
 public class NotaFiscalEstoque extends NotaFiscal{
 
-    public NotaFiscalEstoque(String empresa, String nomeCliente, Long codigo, Date dataFaturamento, double valorTotal, List<Demanda> demandas) {
+	
+	/*@
+    @	
+    @	requires empresa != "";
+    @	requires nomeCliente != "";
+    @	requires 0 <= codigo;
+    @   requires dataFaturamento != null;
+    @	requires 0 <= valorTotal;
+    @	requires demandas != null;
+    @	assignable this.empresa;
+    @	assignable this.nomeCliente;
+    @	assignable this.codigo;
+    @	assignable this.dataFaturamento;
+    @	assignable this.valorTotal;
+    @	assignable this.demandas;
+    @ 	ensures this.empresa == empresa;
+    @	ensures this.nomeCliente == nomeCliente;
+    @   ensures this.codigo == codigo;
+    @   ensures this.dataFaturamento == dataFaturamento;
+    @   ensures this.valorTotal == valorTotal;
+    @	ensures this.demandas == demandas;
+    @*/
+    public NotaFiscalEstoque(String empresa, String nomeCliente, long codigo, Date dataFaturamento, double valorTotal, List<Demanda> demandas) {
         super(empresa, nomeCliente, codigo, dataFaturamento, valorTotal, demandas);
     }
 

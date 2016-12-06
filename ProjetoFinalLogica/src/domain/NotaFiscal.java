@@ -83,7 +83,7 @@ public abstract class NotaFiscal {
     /**
      * @return the codigo
      */
-    public /*@ pure @*/ Long getCodigo() {
+    public /*@ pure @*/ long getCodigo() {
         return codigo;
     }
 

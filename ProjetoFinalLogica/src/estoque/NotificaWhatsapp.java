@@ -10,11 +10,17 @@ import domain.Notificacao;
 
 public class NotificaWhatsapp extends Notificacao{
     
+	
+	/*@
+    @	requires mensagem != "";
+    @	assignable this.mensagem;
+    @	ensures this.mensagem == mensagem; 
+    @*/
     public NotificaWhatsapp(String mensagem) {
             super(mensagem);
     }
 
-    public void enviar() {
+    public /*@ pure @*/ void enviar() {
             System.out.println("Enviando notificacao por Whatsapp...");
             System.out.println(getMensagem());
     }

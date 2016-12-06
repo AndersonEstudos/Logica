@@ -21,11 +21,27 @@ public class Item extends Demanda{
     
     /*@
     @	requires 0 <= quantidadeEmEstoque;
+    @	requires nome != "";
+    @	requires 0 <= preco;
+    @	requires descricao != "";
+    @   requires date != null;
+    @	assignable this.nome;
+    @	assignable this.preco;
+    @	assignable this.descricao;
+    @	assignable this.prazo;
+    @ 	ensures this.idDemanda == count.longValue() - 1;
+    @	ensures this.nome == nome;
+    @   ensures this.preco == preco;
+    @   ensures this.descricao == descricao;
+    @   ensures this.prazo == date;
     @	ensures this.quantidadeEmEstoque == quantidadeEmEstoque;
     @*/
     public Item(int quantidadeEmEstoque, String nome, double preco, String descricao, Date date) {
         super( nome, preco, descricao, date);
         this.quantidadeEmEstoque = quantidadeEmEstoque;
+        if(quantidadeEmEstoque > 0){
+        	this.disponivel = true;
+        }
     }
 
     /**

@@ -87,7 +87,7 @@ public abstract class Pagamento {
     /*@
     @ 	requires 0 <= valor;
     @	assignable this.valor;
-    @	ensures this.valor == \old(this.valor + valor);
+    @	ensures this.valor == \old(this.valor) + valor;
     @*/
     public void somaValor(double valor){
         this.valor += valor;
