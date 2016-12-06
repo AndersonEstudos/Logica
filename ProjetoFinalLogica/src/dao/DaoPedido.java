@@ -93,7 +93,7 @@ public class DaoPedido implements IDaoPedido{
 		Iterator<Pedido> it = pedidos.iterator();
 		while(it.hasNext()) {
                         Pedido d = it.next();
-                        if(d.getIdUsuarioSolicitante()== (usuario))
+                        if(d.getIdUsuarioSolicitante() == (usuario))
                             resultList.add(d);
 		}
         

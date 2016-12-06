@@ -37,6 +37,11 @@ public interface IDaoUsuarioPadrao {
       @ ensures \result == null || \result.getId() == id;
       @*/
     public /*@ pure nullable @*/ UsuarioPadrao pegarUsuario(long id);
+    
+    /*@ ensures \result.size() == listusers.length;
+      @ ensures_redundantly (\forall int i; i >= 0 && i < \result.size(); 
+	  @   (\exists int j; j >= 0 && j < listusers.length; (\result.get(i).equals(listusers[j]))));
+      @*/
     public ArrayList<UsuarioPadrao> listarUsuarios();
    
     /*@ requires login != null && login.length() > 0;

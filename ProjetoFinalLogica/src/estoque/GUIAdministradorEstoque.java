@@ -34,8 +34,8 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
     private /*@ spec_public nullable @*/ static Scanner in = new Scanner(System.in);
     private /*@ spec_public nullable @*/ GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
     private /*@ spec_public nullable @*/ GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
-    //private /*@ spec_public nullable @*/ GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    //private /*@ spec_public nullable @*/ GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoEstoque(), new NotaFiscalBuilderEstoque());
+    private /*@ spec_public nullable @*/ GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
+    private /*@ spec_public nullable @*/ GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoEstoque(), new NotaFiscalBuilderEstoque());
     //private /*@ spec_public nullable @*/ GerenciadorHistoricos gerenciadorHistoricos = new GerenciadorHistoricos();
     //private /*@ spec_public nullable @*/ GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao(new FabricaNotificacaoEstoque());
 
@@ -106,7 +106,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
 
     @Override
     public void listarUsuarios() {
-       /* try {
+        try {
             ArrayList<UsuarioPadrao> listUsuario = gerenciadorUsuarios.listarUsuarios();
             Iterator<UsuarioPadrao> it = listUsuario.iterator();
 
@@ -124,12 +124,12 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
             }
         } catch (Exception e) {
         }
-*/
+
     }
 
     @Override
     public void cadastrarCliente() {
-       /* try {
+        try {
 
             System.out.println("---------- Cadastrar Cliente----------");
             System.out.println("Nome: ");
@@ -146,24 +146,24 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
             gerenciadorCliente.cadastrarCliente(new UsuarioCliente(nome, setor, telefone, login, senha));
         } catch (Exception e) {
 
-        }*/
+        }
     }
 
     @Override
     public void removerCliente() {
-        /*try {
+        try {
             System.out.println("---------- Remover Cliente----------");
             System.out.print("Id: ");
             long id = Long.parseLong(in.nextLine());
             gerenciadorCliente.removerCliente(gerenciadorCliente.getCliente(id));
         } catch (Exception e) {
 
-        }*/
+        }
     }
 
     @Override
     public void listarCliente() {
-       /* ArrayList<UsuarioCliente> listUsuario = gerenciadorCliente.listarClientes();
+        ArrayList<UsuarioCliente> listUsuario = gerenciadorCliente.listarClientes();
         Iterator<UsuarioCliente> it = listUsuario.iterator();
 
         while (it.hasNext()) {
@@ -175,7 +175,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
             System.out.println("Telefone: " + usuarioCliente.getTelefone());
             System.out.println("Login: " + usuarioCliente.getLogin());
             System.out.println("Senha: " + usuarioCliente.getSenha());
-        }*/
+        }
     }
 
     @Override
@@ -208,7 +208,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
     @Override
     public void listarPedidos() {
 
-        /*List<Pedido> listPedido = gerenciadorPedidos.listarPedidos();
+        List<Pedido> listPedido = gerenciadorPedidos.listarPedidos();
 
         for (Pedido demanda : listPedido) {
             System.out.println("---------------------------------------");
@@ -219,7 +219,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
             System.out.println("IdUsuarioDemandando: " + demanda.getIdUsuarioDemandando());
             System.out.println("Descricao: " + demanda.getDescricao());
             System.out.println("Status: " + demanda.getStatus());
-        }*/
+        }
     }
 
 }

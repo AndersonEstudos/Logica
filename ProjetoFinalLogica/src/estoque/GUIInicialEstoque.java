@@ -87,13 +87,13 @@ public class GUIInicialEstoque implements GUIInicial {
                     guiAdministrador.removerProdutos();
                     break;
                 case 5:
-                    //showMenuGUIInformacoes();
+                    showMenuGUIInformacoes();
                     break;
                 case 6:
-                    //guiAdministrador.cadastrarCliente();
+                    guiAdministrador.cadastrarCliente();
                     break;
                 case 7:
-                    //guiAdministrador.removerCliente();
+                    guiAdministrador.removerCliente();
                     break;
                 case 8:
                     //guiAdministrador.analisarPedido(usuario);
@@ -166,7 +166,7 @@ public class GUIInicialEstoque implements GUIInicial {
                     break;
             }
         } while (option > 0);
-    }
+    }*/
     
     public void showMenuGUIInformacoes(){
         int option;
@@ -189,10 +189,10 @@ public class GUIInicialEstoque implements GUIInicial {
                     guiAdministrador.listarCliente();
                     break;
                 case 3:
-                    guiCliente.listarDemandas();
+                   // guiCliente.listarDemandas();
                     break;
                 case 4:
-                    guiAdministrador.listarPedidos();
+                   // guiAdministrador.listarPedidos();
                     break;
                 default:
                     System.exit(0);
@@ -201,6 +201,6 @@ public class GUIInicialEstoque implements GUIInicial {
             
             
         }while (option > 0);
-    }*/
+    }
 
 }

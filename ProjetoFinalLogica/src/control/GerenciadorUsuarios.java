@@ -17,7 +17,10 @@ import java.util.ArrayList;
  */
 public class GerenciadorUsuarios {
     private /*@ spec_public nullable @*/ IDaoUsuarioPadrao daoUsuario;
-
+    
+    /*@ assignable daoUsuario; 
+      @ ensures daoUsuario != null;
+      @*/
     public GerenciadorUsuarios() {
         this.daoUsuario = DaoUsuarioPadrao.getInstance();
     }
@@ -36,7 +39,8 @@ public class GerenciadorUsuarios {
     public void atualizarUsuario(UsuarioPadrao usuario){
         this.daoUsuario.atualizarUsuario(usuario);
     }
-    
+    /*@ ensures \result != null;
+      @*/
     public ArrayList<UsuarioPadrao> listarUsuarios(){
         return this.daoUsuario.listarUsuarios();
     }

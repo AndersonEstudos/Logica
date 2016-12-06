@@ -14,25 +14,38 @@ import java.util.ArrayList;
  */
 public interface IDaoPedido {
    
-	//@ public model instance Object[] listpedidos;
+  //@ public model instance Object[] listpedidos;
 	
-	/*@ public invariant (\forall int i; i >= 0 && i < listpedidos.length - 1; listpedidos[i] != null);
-	  @*/
+  /*@ public invariant (\forall int i; i >= 0 && i < listpedidos.length - 1; listpedidos[i] != null);
+	@*/
 		
-	/*@ requires demanda != null;
-	  @ requires false == (\exists int i; 0 <= i && i < listpedidos.length; listpedidos[i].equals(demanda));
-	  @ ensures (\exists int i; 0 <= i && i < listpedidos.length; listpedidos[i].equals(demanda));
-	  @ ensures_redundantly (\forall int i; i >= 0 && i < \old(listpedidos.length) - 1; 
-	  @   (\exists int j; j >= 0 && j < listpedidos.length - 1; \old(listpedidos[i]).equals(listpedidos[j])));
-	  @*/	
+  /*@ requires demanda != null;
+	@ requires false == (\exists int i; 0 <= i && i < listpedidos.length; listpedidos[i].equals(demanda));
+	@ ensures (\exists int i; 0 <= i && i < listpedidos.length; listpedidos[i].equals(demanda));
+	@ ensures_redundantly (\forall int i; i >= 0 && i < \old(listpedidos.length) - 1; 
+	@   (\exists int j; j >= 0 && j < listpedidos.length - 1; \old(listpedidos[i]).equals(listpedidos[j])));
+	@*/	
 	public void adicionarPedido(Pedido demanda);
+	
+  /*@ requires demanda != null;
+    @ ensures (\forall int i; i >=0 && i < listpedidos.length; ((Pedido)listpedidos[i]).getIdUsuarioSolicitante() != demanda.getIdServico());
+    @*/
     public void removerPedido(Pedido demanda);
     public void atualizarPedido(Pedido demanda);
     
-    /*@ requires id >= 0;
-      @ ensures \result == null || \result.getIdServico() == id;
-      @*/
+  /*@ requires id >= 0;
+    @ ensures \result == null || \result.getIdServico() == id;
+    @*/
     public/*@ pure nullable @*/Pedido pegarPedido(long id);
-    public ArrayList<Pedido> listarPedidosUsuario(long usuario);
-    public ArrayList<Pedido> listarPedidos();
+  
+  /*@ ensures_redundantly (\forall int i; i >= 0 && i < \result.size(); 
+	@   ((Pedido)\result.get(i)).getIdServico() == usuario);
+    @*/
+    public /*@ pure @*/ ArrayList<Pedido> listarPedidosUsuario(long usuario);
+  
+  /*@ ensures \result.size() == listpedidos.length;
+    @ ensures_redundantly (\forall int i; i >= 0 && i < \result.size(); 
+	@   (\exists int j; j >= 0 && j < listpedidos.length; (\result.get(i).equals(listpedidos[j]))));
+    @*/
+    public/*@ pure @*/ ArrayList<Pedido> listarPedidos();
 }

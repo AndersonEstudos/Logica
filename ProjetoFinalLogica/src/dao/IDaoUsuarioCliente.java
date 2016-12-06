@@ -26,7 +26,12 @@ public interface IDaoUsuarioCliente {
 	  @   (\exists int j; j >= 0 && j < users.length - 1; \old(users[i]).equals(users[j])));
 	  @*/
     public void adicionarCliente(UsuarioCliente usuario);
+    
+  /*@ requires usuario != null;
+    @ ensures (\forall int i; i >=0 && i < users.length; ((UsuarioCliente)users[i]).getId() != usuario.getId());
+    @*/
     public void removerCliente(UsuarioCliente usuario);
+    
     public void atualizarCliente(UsuarioCliente usuario);
     
     /*@ requires id >= 0;
@@ -38,6 +43,11 @@ public interface IDaoUsuarioCliente {
       @ ensures \result == null || \result.getLogin().equals(login);
       @*/
     public  /*@ pure nullable @*/ UsuarioCliente pegarCliente(String login);
+    
+  /*@ ensures \result.size() == users.length;
+    @ ensures_redundantly (\forall int i; i >= 0 && i < \result.size(); 
+	@   (\exists int j; j >= 0 && j < users.length; (\result.get(i).equals(users[j]))));
+    @*/
     public ArrayList<UsuarioCliente> listarCliente();
 
 

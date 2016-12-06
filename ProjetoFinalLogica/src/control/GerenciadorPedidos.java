@@ -66,7 +66,8 @@ public class GerenciadorPedidos {
     public void removerPedido(Pedido pedido) {
         this.daoPedido.removerPedido(pedido);
     }
-
+    /*@ ensures \result != null;
+      @*/
     public ArrayList<Pedido> listarPedidos() {
         return this.daoPedido.listarPedidos();
     }

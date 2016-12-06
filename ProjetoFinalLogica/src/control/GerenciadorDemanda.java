@@ -18,8 +18,11 @@ import java.util.ArrayList;
  */
 public class GerenciadorDemanda {
 
-	private IDaoDemanda daoDemanda;
-
+	private /*@ spec_public nullable @*/ IDaoDemanda daoDemanda;
+	
+	/*@ assignable daoDemanda;
+ 	  @ ensures daoDemanda != null;
+	  @*/
 	public GerenciadorDemanda() {
 		daoDemanda = DaoDemanda.getInstance();
 	}
