@@ -21,7 +21,8 @@ public class GerenciadorUsuarios {
     public GerenciadorUsuarios() {
         this.daoUsuario = DaoUsuarioPadrao.getInstance();
     }
-
+    /*@ requires usuario != null;
+      @*/
     public void cadastrarUsuario(UsuarioPadrao usuario) throws UsuarioInvalidoException{
         if(validarUsuario(usuario)) {
             this.daoUsuario.adicionarUsuario(usuario);
@@ -59,7 +60,8 @@ public class GerenciadorUsuarios {
     @			   requires usuario.getNome().length()  == 0  || 
     @                       usuario.getSenha().length() == 0  || 
     @                       usuario.getLogin().length() == 0  ||
-    @                       daoUsuario.pegarUsuario(usuario.getId()) != null; 	
+    @                       daoUsuario.pegarUsuario(usuario.getId()) != null ||
+    @						daoUsuario.pegarUsuario(usuario.getLogin()) != null; 	
     @              signals_only UsuarioInvalidoException;
     @*/
     private /*@ pure @*/ boolean validarUsuario(UsuarioPadrao usuario) throws UsuarioInvalidoException {

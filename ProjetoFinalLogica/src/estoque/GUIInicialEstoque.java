@@ -78,7 +78,7 @@ public class GUIInicialEstoque implements GUIInicial {
                     guiAdministrador.cadastrarUsuario();
                     break;
                 case 2:
-                    //guiAdministrador.cadastrarProdutos();
+                    guiAdministrador.cadastrarProdutos();
                     break;
                 case 3:
                     //guiAdministrador.removerUsuario();

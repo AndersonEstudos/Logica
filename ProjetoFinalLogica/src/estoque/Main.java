@@ -6,8 +6,6 @@
 package estoque;
 
 import GUI.GUILogin;
-import control.GerenciadorClientes;
-import control.GerenciadorUsuarios;
 import dao.DaoDemanda;
 import dao.DaoPedido;
 import dao.DaoUsuarioCliente;
@@ -21,7 +19,7 @@ import domain.Pedido;
 import domain.UsuarioCliente;
 import domain.UsuarioPadrao;
 import excecao.ClienteInvalidoException;
-import excecao.UsuarioInvalidoException;
+
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,8 +32,7 @@ public class Main {
 
     public static void main(String[] args) throws ClienteInvalidoException {
         popularDao();
-        //guiLogin.logar(); 
-
+        guiLogin.logar();    	
     }
 
     public static void popularDao() throws ClienteInvalidoException {

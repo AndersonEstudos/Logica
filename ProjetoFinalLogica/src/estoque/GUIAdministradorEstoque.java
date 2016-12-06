@@ -33,7 +33,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
 
     private /*@ spec_public nullable @*/ static Scanner in = new Scanner(System.in);
     private /*@ spec_public nullable @*/ GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
-    //private /*@ spec_public nullable @*/ GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
+    private /*@ spec_public nullable @*/ GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
     //private /*@ spec_public nullable @*/ GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
     //private /*@ spec_public nullable @*/ GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoEstoque(), new NotaFiscalBuilderEstoque());
     //private /*@ spec_public nullable @*/ GerenciadorHistoricos gerenciadorHistoricos = new GerenciadorHistoricos();
@@ -66,10 +66,10 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
 
     @Override
     public void cadastrarProdutos() {
-       /* System.out.println("Nome do Produto: ");
+        System.out.println("Nome do Produto: ");
         String nome = in.nextLine();
         System.out.println("Quantidade em Estoque: ");
-        int quantidadeEmEstoque = in.nextInt();
+        int quantidadeEmEstoque = Integer.parseInt(in.nextLine());
         System.out.println("Preco: ");
         double preco = Double.parseDouble(in.nextLine());
         System.out.println("Descricao: ");
@@ -81,7 +81,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
             Logger.getLogger(GUIAdministradorEstoque.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DemandaInvalidoException ex) {
             Logger.getLogger(GUIAdministradorEstoque.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
 
     }
 

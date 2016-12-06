@@ -21,8 +21,8 @@ public class GUILoginEstoque implements GUI.GUILogin {
     private /*@ spec_public nullable @*/ GUIInicial guiInicialServico = new GUIInicialEstoque();
     protected /*@ spec_public nullable @*/ Usuario usuario;
    
-    /*@ protected represents senhasistema <- usuario.getSenha();
-      @ protected represents loginsistema <- usuario.getLogin();
+    /*@ protected represents senhasistema <- (usuario != null ? usuario.getSenha() : "enull");
+      @ protected represents loginsistema <- (usuario != null ? usuario.getLogin(): "enull");
       @*/
     
     @Override
