@@ -25,18 +25,35 @@ import java.util.ArrayList;
 
 public class GerenciadorPedidos {
 
-    private IDaoPedido daoPedido;
-    private GerenciadorPagamento gerenciadorPagamento;
-    private GerenciadorDemanda gerenciadorDemandas;
-    private GerenciadorNotificao notificao;
-    private GerarNotaFiscal gerarNotaFiscal;
+	private /*@ spec_public @*/ IDaoPedido daoPedido;
+    private /*@ spec_public @*/ GerenciadorPagamento gerenciadorPagamento;
+    private /*@ spec_public @*/ GerenciadorDemanda gerenciadorDemandas;
+    private /*@ spec_public @*/ GerenciadorNotificao notificao;
+    private /*@ spec_public @*/ GerarNotaFiscal gerarNotaFiscal;
 
+    
+    /*@
+     @		requires fabricaNotificacao != null;
+     @		requires notaFiscalBuilder != null;
+     @		ensures daoPedido != null ;
+     @		ensures gerenciadorPagamento != null && (gerenciadorPagamento instanceof GerenciadorPagamento);
+     @		ensures notificao != null && (notificao instanceof GerenciadorNotificao);
+     @		ensures gerarNotaFiscal != null && (gerarNotaFiscal instanceof GerarNotaFiscal);
+     @*/
     public GerenciadorPedidos(FabricaNotificacao fabricaNotificacao, NotaFiscalBuilder notaFiscalBuilder) {
         daoPedido = DaoPedido.getInstance();
         gerenciadorPagamento = new GerenciadorPagamento();
         notificao = new GerenciadorNotificao(fabricaNotificacao);
         gerarNotaFiscal = new GerarNotaFiscal(notaFiscalBuilder);
     }
+
+    
+    /*@
+    @		requires pedidos != null;
+    @		requires pagamento != null;
+    @		requires usuario != null;
+    @		requires empresa != "";
+    @*/
 
     public void cadastrarPedidos(Pedido pedidos, Pagamento pagamento, Usuario usuario, String empresa) throws PedidoInvalidoException, DemandaInvalidoException, PagamentoInvalidoException {
 

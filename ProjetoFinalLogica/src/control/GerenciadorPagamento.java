@@ -46,7 +46,7 @@ public class GerenciadorPagamento {
         return this.daoPagamento.listarPagamento();
     }
 
-    public Pagamento getPagamento(Long id) {
+    public Pagamento getPagamento(long id) {
         return this.daoPagamento.pegarPagamento(id);
     }
 }
