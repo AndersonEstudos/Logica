@@ -20,7 +20,7 @@ public class GUIInicialEstoque implements GUIInicial {
 
     private /*@ spec_public nullable @*/ GUIAdministrador guiAdministrador = new GUIAdministradorEstoque();
    // private /*@ spec_public nullable @*/ GUIUsuario guiUsuario = new GUIUsuarioEstoque();
-   // private /*@ spec_public nullable @*/ GUICliente guiCliente = new GUIClienteEstoque();
+    private /*@ spec_public nullable @*/ GUICliente guiCliente = new GUIClienteEstoque();
 
     public void acessarInterface(Usuario usuario) {
         
@@ -96,7 +96,7 @@ public class GUIInicialEstoque implements GUIInicial {
                     guiAdministrador.removerCliente();
                     break;
                 case 8:
-                    //guiAdministrador.analisarPedido(usuario);
+                    guiAdministrador.analisarPedido(usuario);
                     break;
 
                 default:
@@ -189,7 +189,7 @@ public class GUIInicialEstoque implements GUIInicial {
                     guiAdministrador.listarCliente();
                     break;
                 case 3:
-                   // guiCliente.listarDemandas();
+                    guiCliente.listarDemandas();
                     break;
                 case 4:
                     guiAdministrador.listarPedidos();

@@ -82,7 +82,7 @@ public class DaoDemanda implements IDaoDemanda {
         return null;
     }
 
-    public ArrayList<Demanda> listarDemandas() {
+    public /*@ pure @*/ArrayList<Demanda> listarDemandas() {
         ArrayList<Demanda> resultList = new ArrayList<>();
 
         Iterator<Demanda> it = demandas.iterator();

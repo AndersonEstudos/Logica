@@ -36,8 +36,8 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
     private /*@ spec_public nullable @*/ GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
     private /*@ spec_public nullable @*/ GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
     private /*@ spec_public nullable @*/ GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoEstoque(), new NotaFiscalBuilderEstoque());
-    //private /*@ spec_public nullable @*/ GerenciadorHistoricos gerenciadorHistoricos = new GerenciadorHistoricos();
-    //private /*@ spec_public nullable @*/ GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao(new FabricaNotificacaoEstoque());
+    private /*@ spec_public nullable @*/ GerenciadorHistoricos gerenciadorHistoricos = new GerenciadorHistoricos();
+    private /*@ spec_public nullable @*/ GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao(new FabricaNotificacaoEstoque());
 
     @Override
     public void cadastrarUsuario() {
@@ -180,7 +180,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
 
     @Override
     public void analisarPedido(Usuario usuario) {
-        /*listarPedidos();
+        listarPedidos();
         System.out.println("Digite o Id do Pedido: ");
         long idDemanda = Long.parseLong(in.next());
         Pedido pedido = gerenciadorPedidos.getPedido(idDemanda);
@@ -202,7 +202,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
             gerenciadorNotificacao.NotificarAtualizacao(new Historico(idDemanda, pedido.getIdUsuarioDemandando(), new Date(), descricao, usuario));
         } catch (HistoricoInvalidoException ex) {
             Logger.getLogger(GUIUsuarioEstoque.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
     }
 
     @Override
