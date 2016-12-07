@@ -21,6 +21,7 @@ public interface IDaoUsuarioPadrao {
 		
 	/*@ requires usuario != null;
 	  @ requires false == (\exists int i; 0 <= i && i < listusers.length; listusers[i].equals(usuario));
+	  @ assignable listusers;
 	  @ ensures (\exists int i; 0 <= i && i < listusers.length; listusers[i].equals(usuario));
 	  @ ensures_redundantly (\forall int i; i >= 0 && i < \old(listusers.length) - 1; 
 	  @   (\exists int j; j >= 0 && j < listusers.length - 1; \old(listusers[i]).equals(listusers[j])));
@@ -28,6 +29,7 @@ public interface IDaoUsuarioPadrao {
     public void adicionarUsuario(UsuarioPadrao usuario);
     
     /*@ requires usuario != null;
+      @ assignable listusers;
       @ ensures (\forall int i; i >=0 && i < listusers.length; ((UsuarioPadrao)listusers[i]).getId() != usuario.getId());
       @*/
     public void removerUsuario(UsuarioPadrao usuario);

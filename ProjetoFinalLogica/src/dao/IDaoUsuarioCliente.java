@@ -14,34 +14,36 @@ import java.util.ArrayList;
  */
 public interface IDaoUsuarioCliente {
 
-	//@ public model instance Object[] users;
+  //@ public model instance Object[] users;
 	
-	/*@ public invariant (\forall int i; i >= 0 && i < users.length - 1; users[i] != null);
-	  @*/
-	
-	/*@ requires usuario != null;
-	  @ requires false == (\exists int i; 0 <= i && i < users.length; users[i].equals(usuario));
-	  @ ensures (\exists int i; 0 <= i && i < users.length; users[i].equals(usuario));
-	  @ ensures_redundantly (\forall int i; i >= 0 && i < \old(users.length) - 1; 
-	  @   (\exists int j; j >= 0 && j < users.length - 1; \old(users[i]).equals(users[j])));
-	  @*/
+  /*@ public invariant (\forall int i; i >= 0 && i < users.length - 1; users[i] != null);
+    @*/
+	 
+  /*@ requires usuario != null;
+	@ requires false == (\exists int i; 0 <= i && i < users.length; users[i].equals(usuario));
+	@ assignable users;
+	@ ensures (\exists int i; 0 <= i && i < users.length; users[i].equals(usuario));
+	@ ensures_redundantly (\forall int i; i >= 0 && i < \old(users.length) - 1; 
+	@   (\exists int j; j >= 0 && j < users.length - 1; \old(users[i]).equals(users[j])));
+	@*/
     public void adicionarCliente(UsuarioCliente usuario);
     
   /*@ requires usuario != null;
+    @ assignable users;
     @ ensures (\forall int i; i >=0 && i < users.length; ((UsuarioCliente)users[i]).getId() != usuario.getId());
     @*/
     public void removerCliente(UsuarioCliente usuario);
     
     public void atualizarCliente(UsuarioCliente usuario);
     
-    /*@ requires id >= 0;
-      @ ensures \result == null || \result.getId() == id;
-      @*/
+  /*@ requires id >= 0;
+    @ ensures \result == null || \result.getId() == id;
+    @*/
     public  /*@ pure nullable @*/ UsuarioCliente pegarCliente(long id);    
     
-    /*@ requires login != null && login.length() > 0;
-      @ ensures \result == null || \result.getLogin().equals(login);
-      @*/
+  /*@ requires login != null && login.length() > 0;
+    @ ensures \result == null || \result.getLogin().equals(login);
+    @*/
     public  /*@ pure nullable @*/ UsuarioCliente pegarCliente(String login);
     
   /*@ ensures \result.size() == users.length;

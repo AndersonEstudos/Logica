@@ -18,7 +18,7 @@ import java.util.Set;
 public class DaoUsuarioPadrao implements IDaoUsuarioPadrao {
 
 	static  /*@ spec_public nullable @*/ DaoUsuarioPadrao daoUsuario = null;
-	private /*@ nullable @*/ Set<UsuarioPadrao> listusuarios;//@ in listusers;
+	private /*@ spec_public nullable @*/ Set<UsuarioPadrao> listusuarios;//@ in listusers;
 	
 	/*@ private represents listusers <- listusuarios.toArray();
       @*/
@@ -32,7 +32,10 @@ public class DaoUsuarioPadrao implements IDaoUsuarioPadrao {
 		}
 		return daoUsuario;
 	}
-
+	
+	/*@ assignable listusuarios;
+	  @ ensures listusuarios != null;
+	  @*/ 
 	public DaoUsuarioPadrao() {
 		listusuarios = new HashSet<>();		
 	}

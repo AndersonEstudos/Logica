@@ -18,7 +18,7 @@ import java.util.Set;
 public class DaoPedido implements IDaoPedido{
     
     static   /*@ spec_public nullable @*/ DaoPedido daoServico = null;
-    private /*@ nullable @*/ Set<Pedido> pedidos;//@ in listpedidos;
+    private /*@ spec_public nullable @*/ Set<Pedido> pedidos;//@ in listpedidos;
     
     /*@ private represents listpedidos <- pedidos.toArray();
       @*/
@@ -32,7 +32,10 @@ public class DaoPedido implements IDaoPedido{
         }
         return daoServico;
     }
-
+    
+  /*@ assignable pedidos;
+	@ ensures pedidos != null;
+	@*/
     public DaoPedido() {
         pedidos = new HashSet<>();
     }

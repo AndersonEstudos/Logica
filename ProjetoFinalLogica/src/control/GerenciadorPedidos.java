@@ -25,11 +25,11 @@ import java.util.ArrayList;
 
 public class GerenciadorPedidos {
 
-	private /*@ spec_public @*/ IDaoPedido daoPedido;
-    private /*@ spec_public @*/ GerenciadorPagamento gerenciadorPagamento;
-    private /*@ spec_public @*/ GerenciadorDemanda gerenciadorDemandas;
-    private /*@ spec_public @*/ GerenciadorNotificao notificao;
-    private /*@ spec_public @*/ GerarNotaFiscal gerarNotaFiscal;
+	private /*@ spec_public nullable @*/ IDaoPedido daoPedido;
+    private /*@ spec_public nullable @*/ GerenciadorPagamento gerenciadorPagamento;
+    private /*@ spec_public nullable @*/ GerenciadorDemanda gerenciadorDemandas;
+    private /*@ spec_public nullable @*/ GerenciadorNotificao notificao;
+    private /*@ spec_public nullable @*/ GerarNotaFiscal gerarNotaFiscal;
 
     
     /*@
