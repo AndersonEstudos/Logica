@@ -35,6 +35,7 @@ public class GerenciadorPedidos {
     /*@
      @		requires fabricaNotificacao != null;
      @		requires notaFiscalBuilder != null;
+     @		assignable this.daoPedido;
      @		ensures daoPedido != null ;
      @		ensures gerenciadorPagamento != null && (gerenciadorPagamento instanceof GerenciadorPagamento);
      @		ensures notificao != null && (notificao instanceof GerenciadorNotificao);
@@ -80,6 +81,9 @@ public class GerenciadorPedidos {
         }
     }
 
+    /*@
+     @ 		requires pedido != null;
+     @*/
     public void removerPedido(Pedido pedido) {
         this.daoPedido.removerPedido(pedido);
     }
@@ -88,16 +92,33 @@ public class GerenciadorPedidos {
     public ArrayList<Pedido> listarPedidos() {
         return this.daoPedido.listarPedidos();
     }
-
-    public Pedido getPedido(Long codigo) {
+    
+    /*@
+    @	requires 0 <= codigo;
+    @	ensures \result != null; 
+    @*/
+    public Pedido getPedido(long codigo) {
         return this.daoPedido.pegarPedido(codigo);
     }
 
-    public ArrayList<Pedido> getListarPedidoUsuario(Long usuario) {
+    /*@
+    @	requires 0 <= usuario;
+    @	ensures \result != null; 
+    @*/
+    public ArrayList<Pedido> getListarPedidoUsuario(long usuario) {
         return this.daoPedido.listarPedidosUsuario(usuario);
     }
 
-    private boolean validarPedido(Pedido pedido) throws PedidoInvalidoException {
+    /*@		private normal_behavior
+    @		requires pedido != null;
+    @		ensures \result == true;
+    @	also
+    @		private exceptional_behavior
+    @		requires pedido.getIdUsuarioSolicitante() < 0 || pedido.getDescricao().equals("") || daoPedido.pegarPedido(pedido.getIdServico()) != null;
+    @		signals_only PedidoInvalidoException;
+    @		signals (PedidoInvalidoException e);
+    @*/
+    private /*@ pure @*/ boolean validarPedido(Pedido pedido) throws PedidoInvalidoException {
         if (pedido.getIdUsuarioSolicitante() < 0) {
             throw new PedidoInvalidoException("Solicitante não encontrado");
 

@@ -22,9 +22,9 @@ public class GerenciadorNotificao {
         this.fabricaNotificacao = fabricaNotificacao;
     }
 
-    public void NotificarInicio(Pedido demanda) {
+    public void NotificarInicio(Pedido pedido) {
 
-        Notificacao notificao = fabricaNotificacao.criarInicioNoticiarDemanda(demanda);
+        Notificacao notificao = fabricaNotificacao.criarInicioNoticiarDemanda(pedido);
 
         notificao.enviar();
     }

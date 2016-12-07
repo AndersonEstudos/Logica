@@ -13,8 +13,9 @@ import java.util.List;
 
 public class FabricaNotificacaoEstoque implements FabricaNotificacao {
 
-    private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorPedidos gerenciadorServico = new GerenciadorPedidos(this, new NotaFiscalBuilderEstoque());
+    private /*@ spec_public nullable @*/ GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
+    private /*@ spec_public nullable @*/ GerenciadorPedidos gerenciadorServico = new GerenciadorPedidos(this, new NotaFiscalBuilderEstoque());
+    
 
     @Override
     public Notificacao criarInicioNoticiarDemanda(Pedido pedido) {
@@ -49,6 +50,7 @@ public class FabricaNotificacaoEstoque implements FabricaNotificacao {
 
     ;
 
+    
     @Override
     public Notificacao criarNotificacaoAtualizarDemanda(Historico historico) {
         Pedido demanda = gerenciadorServico.getPedido(historico.getIdDemanda());
