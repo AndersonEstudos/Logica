@@ -31,6 +31,8 @@ public interface IDaoPedido {
   /*@ requires demanda != null;
     @ assignable listpedidos;
     @ ensures (\forall int i; i >=0 && i < listpedidos.length; ((Pedido)listpedidos[i]).getIdUsuarioSolicitante() != demanda.getIdServico());
+    @ ensures_redundantly (\forall int i; i >= 0 && i < \old(listpedidos.length) - 1; 
+	@  ((Pedido)\old(listpedidos[i])).getIdUsuarioSolicitante() != demanda.getIdServico() ==> (\exists int j; j >= 0 && j < listpedidos.length - 1; \old(listpedidos[i]).equals(listpedidos[j])));
     @*/
     public void removerPedido(Pedido demanda);
     public void atualizarPedido(Pedido demanda);

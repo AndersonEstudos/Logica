@@ -31,6 +31,8 @@ public interface IDaoUsuarioCliente {
   /*@ requires usuario != null;
     @ assignable users;
     @ ensures (\forall int i; i >=0 && i < users.length; ((UsuarioCliente)users[i]).getId() != usuario.getId());
+    @ ensures_redundantly (\forall int i; i >= 0 && i < \old(users.length) - 1; 
+	@  ((UsuarioCliente)\old(users[i])).getId() != usuario.getId() ==>  (\exists int j; j >= 0 && j < users.length - 1; \old(users[i]).equals(users[j])));
     @*/
     public void removerCliente(UsuarioCliente usuario);
     

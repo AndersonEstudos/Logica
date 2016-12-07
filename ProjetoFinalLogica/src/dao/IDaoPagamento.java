@@ -31,6 +31,8 @@ public interface IDaoPagamento {
   /*@ requires pagamento != null;
     @ assignable listpagamentos;
     @ ensures (\forall int i; i >=0 && i < listpagamentos.length; ((Pagamento)listpagamentos[i]).getIdDemanda() != pagamento.getIdDemanda());
+    @ ensures_redundantly (\forall int i; i >= 0 && i < \old(listpagamentos.length) - 1; 
+	@  ((Pagamento)\old(listpagamentos[i])).getIdDemanda() != pagamento.getIdDemanda() ==> (\exists int j; j >= 0 && j < listpagamentos.length - 1; \old(listpagamentos[i]).equals(listpagamentos[j])));
     @*/
     public void removerPagamento(Pagamento pagamento);
     public void atualizarPagamento(Pagamento pagamento);
