@@ -6,6 +6,7 @@
 package estoque;
 
 import GUI.GUILogin;
+import control.GerenciadorClientes;
 import dao.DaoDemanda;
 import dao.DaoPagamento;
 import dao.DaoPedido;
@@ -31,7 +32,7 @@ import java.util.Date;
 public class Main {
 
     private static /*@ spec_public nullable @*/ GUILogin guiLogin = new GUILoginEstoque();
-    //private static GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
+    private static /*@ spec_public nullable @*/ GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
 
     public static void main(String[] args) throws ClienteInvalidoException {
         popularDao();

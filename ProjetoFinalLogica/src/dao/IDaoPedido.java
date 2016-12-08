@@ -43,7 +43,7 @@ public interface IDaoPedido {
     public/*@ pure nullable @*/Pedido pegarPedido(long id);
   
   /*@ ensures_redundantly (\forall int i; i >= 0 && i < \result.size(); 
-	@   ((Pedido)\result.get(i)).getIdServico() == usuario);
+	@   ((Pedido)\result.get(i)).getIdUsuarioSolicitante() == usuario);
     @*/
     public /*@ pure @*/ ArrayList<Pedido> listarPedidosUsuario(long usuario);
   

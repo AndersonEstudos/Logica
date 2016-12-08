@@ -32,13 +32,7 @@ public class BoletoBancario extends Pagamento{
      @	requires nome != "";
      @	requires vencimentoBoleto != null;
      @	assignable this.idDemanda;
-     @	assignable this.nome;
-     @	ensures this.idDemanda == idDemanda;
-     @	ensures this.nome == nome;
-     @ 	ensures valor == 0; 
-     @	ensures this.vencimentoBoleto == date;
-     @	ensures 0 >= linhaDigitavel && linhaDigitavel <= 1000;
-     @ 	ensures 0 >= codigoBanco && codigoBanco <= 50; 
+     @	assignable this.nome; 
      @*/
     public BoletoBancario(Date vencimentoBoleto, long idDemanda, String nome) {
         super(idDemanda, nome);

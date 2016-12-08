@@ -21,11 +21,11 @@ import java.util.Scanner;
 
 public class GUIClienteEstoque implements GUICliente {
 
-    private static Scanner in = new Scanner(System.in);
-    private GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
-    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoEstoque(), new NotaFiscalBuilderEstoque());
-    ArrayList<Demanda> listaProdutos = new ArrayList<>();
-    private GerenciadorPagamento gerenciadorPagamento = new GerenciadorPagamento();
+    private /*@ spec_public nullable @*/ static Scanner in = new Scanner(System.in);
+    private /*@ spec_public nullable @*/ GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
+    private /*@ spec_public nullable @*/ GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoEstoque(), new NotaFiscalBuilderEstoque());
+    private /*@ spec_public nullable @*/ ArrayList<Demanda> listaProdutos = new ArrayList<>();
+    private /*@ spec_public nullable @*/ GerenciadorPagamento gerenciadorPagamento = new GerenciadorPagamento();
 
     public void cadastrarPedido(Usuario usuario) {
 

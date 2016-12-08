@@ -19,7 +19,7 @@ public class GUIInicialEstoque implements GUIInicial {
     private /*@ spec_public nullable @*/ Scanner in = new Scanner(System.in);
 
     private /*@ spec_public nullable @*/ GUIAdministrador guiAdministrador = new GUIAdministradorEstoque();
-   // private /*@ spec_public nullable @*/ GUIUsuario guiUsuario = new GUIUsuarioEstoque();
+    private /*@ spec_public nullable @*/ GUIUsuario guiUsuario = new GUIUsuarioEstoque();
     private /*@ spec_public nullable @*/ GUICliente guiCliente = new GUIClienteEstoque();
 
     public void acessarInterface(Usuario usuario) {
@@ -42,10 +42,10 @@ public class GUIInicialEstoque implements GUIInicial {
                     showMenuGUIUsuarioAdministrador(usuario);
                     break;
                 case 2:
-                    //showMenuGUIUsuarioPadrao(usuario);
+                    showMenuGUIUsuarioPadrao(usuario);
                     break;
                 case 3:
-                    //showMenuGUIUsuarioCliente(usuario);
+                    showMenuGUIUsuarioCliente(usuario);
                     break;
                 default:
                     break;
@@ -106,7 +106,7 @@ public class GUIInicialEstoque implements GUIInicial {
         } while (option > 0);
     }
 
-   /* public void showMenuGUIUsuarioPadrao(Usuario usuario) {
+    public void showMenuGUIUsuarioPadrao(Usuario usuario) {
         int option;
 
         do {
@@ -166,7 +166,7 @@ public class GUIInicialEstoque implements GUIInicial {
                     break;
             }
         } while (option > 0);
-    }*/
+    }
     
     public void showMenuGUIInformacoes(){
         int option;
