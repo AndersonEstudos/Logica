@@ -7,14 +7,17 @@ package estoque;
 
 import GUI.GUILogin;
 import dao.DaoDemanda;
+import dao.DaoPagamento;
 import dao.DaoPedido;
 import dao.DaoUsuarioCliente;
 import dao.DaoUsuarioPadrao;
 import dao.IDaoDemanda;
+import dao.IDaoPagamento;
 import dao.IDaoPedido;
 import dao.IDaoUsuarioCliente;
 import dao.IDaoUsuarioPadrao;
 import domain.Demanda;
+import domain.Pagamento;
 import domain.Pedido;
 import domain.UsuarioCliente;
 import domain.UsuarioPadrao;
@@ -40,7 +43,7 @@ public class Main {
         IDaoUsuarioPadrao daoUsuarioPadrao = DaoUsuarioPadrao.getInstance();
         IDaoDemanda daoDemanda = DaoDemanda.getInstance();
         IDaoPedido daoPedido = DaoPedido.getInstance();
-        
+        IDaoPagamento daoPagamento = DaoPagamento.getInstance();
          
         UsuarioPadrao usuarioPadrao1 = new UsuarioPadrao(false, "Thiago", "R. dos Lascados", "84 9 5254-6586", "thiago", "admin");
         UsuarioPadrao usuarioPadrao = new UsuarioPadrao(true, "Hiarley", "R. dos Lascados", "84 9 5236-5656", "admin", "admin");
@@ -48,6 +51,8 @@ public class Main {
         Demanda item = new Item(200, "Clip's", 0.10, "Prender papel", new Date());
         Demanda item1 = new Item(5, "Toner de impressora", 37.5, "Tooner Compativel com TK-4054 TK-3453", new Date());
         Demanda item2 = new Item(15, "Caneta", 0.9, "Caneta ponta 1.0", new Date());
+        Pagamento pagamento = new BoletoBancario(new Date(), 1, "pagamento");
+        daoPagamento.adicionarPagamento(pagamento);
         daoDemanda.adicionarDemanda(item);
         daoDemanda.adicionarDemanda(item1);
         daoDemanda.adicionarDemanda(item2);

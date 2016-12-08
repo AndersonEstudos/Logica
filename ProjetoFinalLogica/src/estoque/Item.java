@@ -82,12 +82,10 @@ public class Item extends Demanda{
     /*@		
     @ 	also
     @		public normal_behavior
-    @			assignable \nothing;
     @ 			ensures this.disponivel == true;
     @	also
     @		public exceptional_behavior
     @			requires this.disponivel == false;
-    @			assignable \nothing;
     @			signals_only UnsupportedOperationException;
     @			signals (UnsupportedOperationException e)
     @					this.disponivel == false;

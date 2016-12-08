@@ -26,8 +26,9 @@ public class GerenciadorDemanda {
 	public GerenciadorDemanda() {
 		daoDemanda = DaoDemanda.getInstance();
 	}
-	/*@ requires demanda != null;
-	  @*/
+	/*@ 
+	@	requires demanda != null;
+	@*/
 	public void cadastrarDemanda(Demanda demanda) throws PedidoInvalidoException, DemandaInvalidoException {
 		if (validarDemanda(demanda) && demanda.validar()) {
 			this.daoDemanda.adicionarDemanda(demanda);
@@ -35,19 +36,27 @@ public class GerenciadorDemanda {
 			throw new DemandaInvalidoException("Demanda não cadastrada, verifique seus dados");
 	}
 
+	/*@ requires demanda != null;
+	  @*/
 	public void removerDemanda(Demanda demanda) {
 		this.daoDemanda.removerDemanda(demanda);
 	}
 
+	/*@ requires demanda != null;
+	  @*/
 	public void atualizarDemanda(Demanda demanda) {
 		this.daoDemanda.atualizarDemanda(demanda);
 	}
 
+	/*@ ensures \result != null;
+	  @*/
 	public ArrayList<Demanda> listarDemandas() {
 		return this.daoDemanda.listarDemandas();
 	}
 
-	public Demanda getDemanda(Long id) {
+	/*@ requires 0 <= id;
+	@*/
+	public Demanda getDemanda(long id) {
 		return this.daoDemanda.pegarDemanda(id);
 	}
 	  

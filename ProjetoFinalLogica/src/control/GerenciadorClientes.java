@@ -36,6 +36,8 @@ public class GerenciadorClientes {
         this.daoCliente.removerCliente(cliente);
     }
 
+    /*@ requires cliente != null;
+    @*/
     public void atualizarCliente(UsuarioCliente cliente) {
         this.daoCliente.atualizarCliente(cliente);
     }
@@ -45,10 +47,15 @@ public class GerenciadorClientes {
         return this.daoCliente.listarCliente();
     }
 
+    /*@ requires 0 <= codigo;
+    @
+    @*/
     public UsuarioCliente getCliente(long codigo) {
         return this.daoCliente.pegarCliente(codigo);
     }
-
+    
+    /*@ requires login != "";
+    @*/
     public /*@ nullable @*/ UsuarioCliente getCliente(String login) {
         return this.daoCliente.pegarCliente(login);
     }

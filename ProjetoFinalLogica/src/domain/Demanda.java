@@ -155,7 +155,7 @@ public abstract class Demanda {
 
     
     
-    public abstract boolean validar();
+    public abstract /*@ pure @*/ boolean validar();
 
     /**
      * @return the prazo

@@ -16,12 +16,20 @@ import domain.Notificacao;
  */
 public class GerenciadorNotificao {
 
-    private FabricaNotificacao fabricaNotificacao;
+    private /*@ spec_public @*/  FabricaNotificacao fabricaNotificacao;
 
+    /*@
+    @ 	requires fabricaNotificacao != null;
+    @	assignable this.fabricaNotificacao;
+    @	ensures this.fabricaNotificacao == fabricaNotificacao;
+    @*/
     public GerenciadorNotificao(FabricaNotificacao fabricaNotificacao) {
         this.fabricaNotificacao = fabricaNotificacao;
     }
-
+    
+    /*@
+     @ 		requires pedido != null;
+     @*/
     public void NotificarInicio(Pedido pedido) {
 
         Notificacao notificao = fabricaNotificacao.criarInicioNoticiarDemanda(pedido);
@@ -29,6 +37,9 @@ public class GerenciadorNotificao {
         notificao.enviar();
     }
 
+    /*@
+    @ 		requires historico != null;
+    @*/
     public void NotificarAtualizacao(Historico historico) {
         Notificacao notificao = fabricaNotificacao.criarNotificacaoAtualizarDemanda(historico);
         notificao.enviar();
