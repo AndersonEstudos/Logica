@@ -18,7 +18,7 @@ import java.util.Set;
 public class DaoDemanda implements IDaoDemanda {
 
     static   /*@ spec_public nullable @*/ DaoDemanda daoDemanda = null;
-    private /*@  nullable @*/Set<Demanda> demandas; //@ in listdemandas;
+    private /*@  spec_public nullable @*/Set<Demanda> demandas; //@ in listdemandas;
 
     /*@ private represents listdemandas <- demandas.toArray();
       @*/
@@ -32,7 +32,9 @@ public class DaoDemanda implements IDaoDemanda {
         }
         return daoDemanda;
     }
-
+    /*@ assignable demandas;
+	  @ ensures demandas != null;
+	  @*/
     public DaoDemanda() {
         demandas = new HashSet<>();
     }
@@ -80,7 +82,7 @@ public class DaoDemanda implements IDaoDemanda {
         return null;
     }
 
-    public ArrayList<Demanda> listarDemandas() {
+    public /*@ pure @*/ArrayList<Demanda> listarDemandas() {
         ArrayList<Demanda> resultList = new ArrayList<>();
 
         Iterator<Demanda> it = demandas.iterator();

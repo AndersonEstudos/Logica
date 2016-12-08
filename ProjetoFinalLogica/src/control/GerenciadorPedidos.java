@@ -25,20 +25,21 @@ import java.util.ArrayList;
 
 public class GerenciadorPedidos {
 
-	private /*@ spec_public @*/ IDaoPedido daoPedido;
+	private /*@ spec_public nullable @*/ IDaoPedido daoPedido;
     private /*@ spec_public nullable @*/ GerenciadorPagamento gerenciadorPagamento;
-    private /*@ spec_public @*/ GerenciadorDemanda gerenciadorDemandas;
-    private /*@ spec_public @*/ GerenciadorNotificao notificao;
-    private /*@ spec_public @*/ GerarNotaFiscal gerarNotaFiscal;
+    private /*@ spec_public nullable @*/ GerenciadorDemanda gerenciadorDemandas;
+    private /*@ spec_public nullable @*/ GerenciadorNotificao notificao;
+    private /*@ spec_public nullable @*/ GerarNotaFiscal gerarNotaFiscal;
 
     
     /*@
      @		requires fabricaNotificacao != null;
      @		requires notaFiscalBuilder != null;
      @		assignable this.daoPedido;
-     @		ensures daoPedido != null;
-     @		ensures notificao != null;
-     @		ensures gerarNotaFiscal != null;
+     @		ensures daoPedido != null ;
+     @		ensures gerenciadorPagamento != null && (gerenciadorPagamento instanceof GerenciadorPagamento);
+     @		ensures notificao != null && (notificao instanceof GerenciadorNotificao);
+     @		ensures gerarNotaFiscal != null && (gerarNotaFiscal instanceof GerarNotaFiscal);
      @*/
     public GerenciadorPedidos(FabricaNotificacao fabricaNotificacao, NotaFiscalBuilder notaFiscalBuilder) {
         daoPedido = DaoPedido.getInstance();
@@ -94,7 +95,7 @@ public class GerenciadorPedidos {
     
     /*@
     @	requires 0 <= codigo;
-    @
+    @	ensures \result != null; 
     @*/
     public Pedido getPedido(long codigo) {
         return this.daoPedido.pegarPedido(codigo);
@@ -119,7 +120,7 @@ public class GerenciadorPedidos {
     @*/
     private /*@ pure @*/ boolean validarPedido(Pedido pedido) throws PedidoInvalidoException {
         if (pedido.getIdUsuarioSolicitante() < 0) {
-            throw new PedidoInvalidoException("Solicitante nÃ£o encontrado");
+            throw new PedidoInvalidoException("Solicitante não encontrado");
 
         } else if (pedido.getDescricao().equals("")) {
             throw new PedidoInvalidoException("Servico estar vazia");
