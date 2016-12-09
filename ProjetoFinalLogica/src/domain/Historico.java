@@ -16,18 +16,13 @@ public class Historico {
     private /*@ spec_public @*/ long idDemanda;
     private /*@ spec_public @*/ long idHistorico;
     private /*@ spec_public @*/ Date dataModificaco;
-    private /*@ spec_public @*/ String descricao;
+    private /*@ spec_public nullable @*/ String descricao;
     private /*@ spec_public @*/ Usuario usuarioDemandado;
 
     public Historico() {
     }
 
     /*@
-    @  requires 0 <= idDemanda;
-    @  requires 0 <= idHistorico;
-    @  requires descricao != "";
-    @  requires dataModificaco != null;
-    @  requires usuarioDemandado != null;
     @  ensures this.idDemanda == idDemanda;
     @  ensures this.idHistorico == idHistorico;
     @  ensures this.descricao == descricao;

@@ -1,0 +1,23 @@
+Por causa do tamanho do arquivo final, foi necessario a exclução da biblioteca da ajml
+se precisar executar novamente o arquivo e necessario a intalação e configuração do buildpath do projeto.
+
+é possivel acessar o repository remoto: https://github.com/AndersonEstudos/Logica.git
+
+Dados referentes ao projeto usado para a terceira unidade.
+Componentes: Anderson Araujo, Thiago Oliveira.
+
+    Número de Classes = 43;
+    Quantidade de Métodos = 237;
+    Herança e Interface = 20;
+    LOC = 2113;
+    invariant = 6;
+    initially = 0;
+    constraint = 0;
+    assignable = 122;
+    requires = 205;
+    ensures = 197;
+    behaviour (normal and exceptional) = 54;
+    \forall = 29;
+    \exists = 27;
+    Modelos (represents) = 14;
+    behaviour subtyping = 0;
