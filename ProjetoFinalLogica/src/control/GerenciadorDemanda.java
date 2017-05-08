@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author hiarl
+ * @author hiarley
  */
 public class GerenciadorDemanda {
 
